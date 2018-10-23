@@ -28,8 +28,10 @@ Partial Class MultiGenPointCalendarStrip
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.Name = "MultiGenPointCalendarStrip"
-        Me.Size = New System.Drawing.Size(288, 16)
+        Me.Size = New System.Drawing.Size(288, 30)
         Me.ResumeLayout(False)
 
     End Sub

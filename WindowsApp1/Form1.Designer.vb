@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form1
     Inherits System.Windows.Forms.Form
 
     'Form esegue l'override del metodo Dispose per pulire l'elenco dei componenti.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Form1
     'NOTA: la procedura che segue è richiesta da Progettazione Windows Form
     'Può essere modificata in Progettazione Windows Form.  
     'Non modificarla mediante l'editor del codice.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.MultiGenPointCalendarStrip1 = New MultiGenPointCalendarStrip.MultiGenPointCalendarStrip()
@@ -37,7 +37,9 @@ Partial Class Form1
         '
         'MultiGenPointCalendarStrip1
         '
-        Me.MultiGenPointCalendarStrip1.Location = New System.Drawing.Point(106, 72)
+        Me.MultiGenPointCalendarStrip1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MultiGenPointCalendarStrip1.Location = New System.Drawing.Point(84, 60)
+        Me.MultiGenPointCalendarStrip1.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.MultiGenPointCalendarStrip1.Name = "MultiGenPointCalendarStrip1"
         Me.MultiGenPointCalendarStrip1.Size = New System.Drawing.Size(288, 16)
         Me.MultiGenPointCalendarStrip1.TabIndex = 1

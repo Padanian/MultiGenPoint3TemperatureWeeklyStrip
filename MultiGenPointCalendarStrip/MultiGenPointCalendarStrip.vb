@@ -7,7 +7,7 @@
                 Dim pbTick As PictureBox = New PictureBox
                 With pbTick
                     .Width = 1
-                    .Height = 16
+                    .Height = 30
                     .Location = New Point(Me.Location.X + i, Me.Location.Y)
                     .BackColor = Color.Black
                     .Visible = True
@@ -18,7 +18,7 @@
                 With pbTick
                     .Width = 1
                     .Height = 8
-                    .Location = New Point(Me.Location.X + i, Me.Location.Y)
+                    .Location = New Point(Me.Location.X + i, Me.Location.Y + 14)
                     .BackColor = Color.Black
                     .Visible = True
                 End With
@@ -29,13 +29,53 @@
                 With pbBoxes(i)
                     .Width = 1
                     .Height = 8
-                    .Location = New Point(Me.Location.X + i, Me.Location.Y + 8)
+                    .Location = New Point(Me.Location.X + i, Me.Location.Y + 22)
                     .BackColor = Color.Transparent
                     .Visible = True
                 End With
                 Me.Controls.Add(pbBoxes(i))
             End If
         Next
+        Dim lbl04 As New Label
+        With lbl04
+            .Text = "04"
+            .Location = New Point(12 * 3 + 4, 0)
+            .Visible = True
+            .Width = 16
+        End With
+        Me.Controls.Add(lbl04)
+        Dim lbl08 As New Label
+        With lbl08
+            .Text = "08"
+            .Location = New Point(12 * 7 + 4, 0)
+            .Visible = True
+            .Width = 16
+        End With
+        Me.Controls.Add(lbl08)
+        Dim lbl12 As New Label
+        With lbl12
+            .Text = "12"
+            .Location = New Point(12 * 11 + 4, 0)
+            .Visible = True
+            .Width = 16
+        End With
+        Me.Controls.Add(lbl12)
+        Dim lbl16 As New Label
+        With lbl16
+            .Text = "16"
+            .Location = New Point(12 * 15 + 4, 0)
+            .Visible = True
+            .Width = 16
+        End With
+        Me.Controls.Add(lbl16)
+        Dim lbl20 As New Label
+        With lbl20
+            .Text = "20"
+            .Location = New Point(12 * 19 + 4, 0)
+            .Visible = True
+            .Width = 20
+        End With
+        Me.Controls.Add(lbl20)
     End Sub
     ''' <summary>
     ''' Controllo numerico in combinazione tra trackbar e label

@@ -1,16 +1,40 @@
 ﻿Public Class MultiGenPointCalendarStrip
     Dim pbBoxes As PictureBox() = New PictureBox(287) {}
-    Private Sub New()
+    Public Sub New()
+        InitializeComponent()
         For i = 0 To 287
+            If i = 0 Or i = 287 Then
+                Dim pbTick As PictureBox = New PictureBox
+                With pbTick
+                    .Width = 1
+                    .Height = 16
+                    .Location = New Point(Me.Location.X + i, Me.Location.Y)
+                    .BackColor = Color.Black
+                    .Visible = True
+                End With
+                Me.Controls.Add(pbTick)
+            ElseIf i Mod 12 = 0 Then
+                Dim pbTick As PictureBox = New PictureBox
+                With pbTick
+                    .Width = 1
+                    .Height = 8
+                    .Location = New Point(Me.Location.X + i, Me.Location.Y)
+                    .BackColor = Color.Black
+                    .Visible = True
+                End With
+                Me.Controls.Add(pbTick)
+            End If
             pbBoxes(i) = New PictureBox
-            With pbBoxes(i)
-                .Width = 1
-                .Height = 8
-                .Location = New Point(Me.Location.X + i, Me.Location.Y)
-                .BackColor = Color.Transparent
-                .Visible = True
-            End With
-            Me.Controls.Add(pbBoxes(i))
+            If i <> 0 Then
+                With pbBoxes(i)
+                    .Width = 1
+                    .Height = 8
+                    .Location = New Point(Me.Location.X + i, Me.Location.Y + 8)
+                    .BackColor = Color.Transparent
+                    .Visible = True
+                End With
+                Me.Controls.Add(pbBoxes(i))
+            End If
         Next
     End Sub
     ''' <summary>
@@ -47,21 +71,15 @@
         For i = 0 To 287
             If i >= F1On And i <= F1Off Then
                 pbBoxes(i).BackColor = Color.Black
-            Else
-                pbBoxes(i).BackColor = Color.Transparent
-            End If
-            If i >= F2On And i <= F2Off Then
+            ElseIf i >= F2On And i <= F2Off Then
                 pbBoxes(i).BackColor = Color.Black
-            Else
-                pbBoxes(i).BackColor = Color.Transparent
-            End If
-            If i >= F3On And i <= F3Off Then
+            ElseIf i >= F3On And i <= F3Off Then
                 pbBoxes(i).BackColor = Color.Black
             Else
                 pbBoxes(i).BackColor = Color.Transparent
             End If
         Next
-
     End Sub
+
 
 End Class

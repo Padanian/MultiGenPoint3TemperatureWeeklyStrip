@@ -23,7 +23,6 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.MultiGenPointCalendarStrip1 = New MultiGenPointCalendarStrip.MultiGenPointCalendarStrip()
         Me.SuspendLayout()
         '
         'Button1
@@ -35,21 +34,11 @@ Partial Class Form1
         Me.Button1.Text = "Button1"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'MultiGenPointCalendarStrip1
-        '
-        Me.MultiGenPointCalendarStrip1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MultiGenPointCalendarStrip1.Location = New System.Drawing.Point(84, 60)
-        Me.MultiGenPointCalendarStrip1.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
-        Me.MultiGenPointCalendarStrip1.Name = "MultiGenPointCalendarStrip1"
-        Me.MultiGenPointCalendarStrip1.Size = New System.Drawing.Size(288, 16)
-        Me.MultiGenPointCalendarStrip1.TabIndex = 1
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.MultiGenPointCalendarStrip1)
         Me.Controls.Add(Me.Button1)
         Me.Name = "Form1"
         Me.Text = "Form1"
@@ -58,5 +47,4 @@ Partial Class Form1
     End Sub
 
     Friend WithEvents Button1 As Button
-    Friend WithEvents MultiGenPointCalendarStrip1 As MultiGenPointCalendarStrip.MultiGenPointCalendarStrip
 End Class

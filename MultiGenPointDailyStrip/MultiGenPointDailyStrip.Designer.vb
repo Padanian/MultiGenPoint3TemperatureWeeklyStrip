@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class MultiGenPointCalendarStrip
+Partial Class MultiGenPointDailyStrip
     Inherits System.Windows.Forms.UserControl
 
     'UserControl1 esegue l'override del metodo Dispose per pulire l'elenco dei componenti.

@@ -48,10 +48,8 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MultiGenPointCalendarStrip, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MultiGenPointCalendarStrip\bin\Release\MultiGenPointCalendarStrip.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="MultiGenPointDailyStrip">
+      <HintPath>..\MultiGenPointDailyStrip\bin\Release\MultiGenPointDailyStrip.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -123,6 +121,9 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

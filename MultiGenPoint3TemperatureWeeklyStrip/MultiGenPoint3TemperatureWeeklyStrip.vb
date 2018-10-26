@@ -60,6 +60,7 @@ Public Class MultiGenPoint3TemperatureWeeklyStrip
                 .Visible = True
             End With
             Me.Controls.Add(pbTickT1)
+            AddHandler pbTickT1.Click, AddressOf pbSquares_Click
             With pbTickT2
                 .Width = 5
                 .Height = 5
@@ -68,6 +69,7 @@ Public Class MultiGenPoint3TemperatureWeeklyStrip
                 .Visible = True
             End With
             Me.Controls.Add(pbTickT2)
+            AddHandler pbTickT2.Click, AddressOf pbSquares_Click
             With pbTickT3
                 .Width = 5
                 .Height = 5
@@ -76,6 +78,7 @@ Public Class MultiGenPoint3TemperatureWeeklyStrip
                 .Visible = True
             End With
             Me.Controls.Add(pbTickT3)
+            AddHandler pbTickT3.Click, AddressOf pbSquares_Click
         Next
 
 #Region "Labels"
@@ -270,6 +273,7 @@ Public Class MultiGenPoint3TemperatureWeeklyStrip
         End With
         Me.Controls.Add(pbSquares2)
 
+
         Dim pbSquares3 As PictureBox = New PictureBox
         With pbSquares3
             .Width = (F3Off - F3On)
@@ -281,10 +285,13 @@ Public Class MultiGenPoint3TemperatureWeeklyStrip
         End With
         Me.Controls.Add(pbSquares3)
 
+
         Application.DoEvents()
 
 
     End Sub
-
+    Public Sub pbSquares_Click()
+        dlgTemperatureCalendar.ShowDialog()
+    End Sub
 
 End Class

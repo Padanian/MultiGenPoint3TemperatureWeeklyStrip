@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{21E9D5E5-FFB9-4F00-A0D7-C11BE8712166}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>MultiGenPointDailyStrip</RootNamespace>
-    <AssemblyName>MultiGenPointDailyStrip</AssemblyName>
+    <RootNamespace>MultiGenPoint3TemperatureWeeklyStrip</RootNamespace>
+    <AssemblyName>MultiGenPoint3TemperatureWeeklyStrip</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Windows</MyType>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
@@ -19,7 +19,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>MultiGenPointDailyStrip.xml</DocumentationFile>
+    <DocumentationFile>MMultiGenPoint3TemperatureWeeklyStrip.xml</DocumentationFile>
     <DefineConstants>_MYFORMS=True</DefineConstants>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
@@ -29,7 +29,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>MultiGenPointDailyStrip.xml</DocumentationFile>
+    <DocumentationFile>MultiGenPoint3TemperatureWeeklyStrip.xml</DocumentationFile>
     <DefineConstants>_MYFORMS=True</DefineConstants>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
@@ -74,11 +74,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
     </Compile>
-    <Compile Include="MultiGenPointDailyStrip.vb">
+    <Compile Include="MultiGenPoint3TemperatureWeeklyStrip.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MultiGenPointDailyStrip.Designer.vb">
-      <DependentUpon>MultiGenPointDailyStrip.vb</DependentUpon>
+    <Compile Include="MultiGenPoint3TemperatureWeeklyStrip.Designer.vb">
+      <DependentUpon>MultiGenPoint3TemperatureWeeklyStrip.vb</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Resources.Designer.vb">
@@ -99,8 +99,8 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="MultiGenPointDailyStrip.resx">
-      <DependentUpon>MultiGenPointDailyStrip.vb</DependentUpon>
+    <EmbeddedResource Include="MultiGenPoint3TemperatureWeeklyStrip.resx">
+      <DependentUpon>MultiGenPoint3TemperatureWeeklyStrip.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

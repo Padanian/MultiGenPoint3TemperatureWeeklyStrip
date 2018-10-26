@@ -1,4 +1,4 @@
-﻿Public Class MultiGenPointDailyStrip
+﻿Public Class MultiGenPoint3TemperatureWeeklyStrip
     Public Sub New()
         InitializeComponent()
         For i = 0 To 288 Step 12
@@ -164,4 +164,3 @@
 
 
 End Class
-

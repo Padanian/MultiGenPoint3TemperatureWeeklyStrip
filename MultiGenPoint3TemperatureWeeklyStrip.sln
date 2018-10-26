@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MultiGenPointDailyStrip", "MultiGenPointDailyStrip\MultiGenPointDailyStrip.vbproj", "{21E9D5E5-FFB9-4F00-A0D7-C11BE8712166}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MultiGenPoint3TemperatureWeeklyStrip", "MultiGenPoint3TemperatureWeeklyStrip\MultiGenPoint3TemperatureWeeklyStrip.vbproj", "{21E9D5E5-FFB9-4F00-A0D7-C11BE8712166}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "WindowsApp1", "WindowsApp1\WindowsApp1.vbproj", "{4A7417AF-CF83-490F-809C-855D1DF8435D}"
 EndProject

@@ -117,5 +117,14 @@
   <ItemGroup>
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_sun_226556.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_snowflake-alt2_372618.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_icon_3_high_five_329409.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

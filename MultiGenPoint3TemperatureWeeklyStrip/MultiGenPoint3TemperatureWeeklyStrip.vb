@@ -1,39 +1,88 @@
-﻿Public Class MultiGenPoint3TemperatureWeeklyStrip
+﻿Imports System.Globalization
+
+Public Class MultiGenPoint3TemperatureWeeklyStrip
+    Dim WithEvents clock As New Timers.Timer
+    Private m_temperature As Double
+    Private m_isHeating As Boolean
+    Private m_isCooling As Boolean
+    Private m_isManual As Boolean
+    Public Property isHeating As Boolean
+        Get
+            isHeating = m_isHeating
+        End Get
+        Set(isHeating As Boolean)
+            pbHeat.Visible = isHeating
+            m_isHeating = isHeating
+        End Set
+    End Property
+    Public Property isCooling As Boolean
+        Get
+            isCooling = m_isCooling
+        End Get
+        Set(isCooling As Boolean)
+            pbCool.Visible = isCooling
+            m_isCooling = isCooling
+        End Set
+    End Property
+    Public Property isManual As Boolean
+        Get
+            isManual = m_isManual
+        End Get
+        Set(isManual As Boolean)
+            pbManual.Visible = isManual
+            m_isManual = isManual
+        End Set
+    End Property
+
+    Public Property temperature As Double
+        Get
+            temperature = m_temperature
+        End Get
+        Set(temperature As Double)
+            lblTemperature.Text = Format(temperature, "##0.0").ToString & "°c"
+            m_temperature = temperature
+
+        End Set
+    End Property
     Public Sub New()
         InitializeComponent()
-        For i = 0 To 288 Step 12
-            Dim disp As Integer
-            If i = 288 Then
-                disp = i - 1
-            Else
-                disp = i
-            End If
-            If i = 0 Or i = 288 Then
-                Dim pbTick As PictureBox = New PictureBox
-                With pbTick
-                    .Width = 1
-                    .Height = 30
-                    .Location = New Point(Me.Location.X + disp, Me.Location.Y)
-                    .BackColor = Color.Black
-                    .Visible = True
-                End With
-                Me.Controls.Add(pbTick)
-            Else
-                Dim pbTick As PictureBox = New PictureBox
-                With pbTick
-                    .Width = 1
-                    .Height = 8
-                    .Location = New Point(Me.Location.X + disp, Me.Location.Y + 14)
-                    .BackColor = Color.Black
-                    .Visible = True
-                End With
-                Me.Controls.Add(pbTick)
-            End If
+        modificaClockText("")
+
+        For i = 3 To 288 Step 6
+            Dim pbTickT1 As PictureBox = New PictureBox
+            Dim pbTickT2 As PictureBox = New PictureBox
+            Dim pbTickT3 As PictureBox = New PictureBox
+            With pbTickT1
+                .Width = 5
+                .Height = 5
+                .Location = New Point(Me.Location.X + i, Me.Location.Y + 110)
+                .BackColor = Color.Black
+                .Visible = True
+            End With
+            Me.Controls.Add(pbTickT1)
+            With pbTickT2
+                .Width = 5
+                .Height = 5
+                .Location = New Point(Me.Location.X + i, Me.Location.Y + 116)
+                .BackColor = Color.Black
+                .Visible = True
+            End With
+            Me.Controls.Add(pbTickT2)
+            With pbTickT3
+                .Width = 5
+                .Height = 5
+                .Location = New Point(Me.Location.X + i, Me.Location.Y + 122)
+                .BackColor = Color.Black
+                .Visible = True
+            End With
+            Me.Controls.Add(pbTickT3)
         Next
+
+#Region "Labels"
         Dim lbl04 As New Label
         With lbl04
             .Text = "04"
-            .Location = New Point(12 * 3 + 4, 0)
+            .Location = New Point(12 * 3 + 6, 96)
             .Visible = True
             .Width = 20
             .Height = 12
@@ -42,7 +91,7 @@
         Dim lbl08 As New Label
         With lbl08
             .Text = "08"
-            .Location = New Point(12 * 7 + 4, 0)
+            .Location = New Point(12 * 7 + 6, 96)
             .Visible = True
             .Width = 20
             .Height = 12
@@ -51,7 +100,7 @@
         Dim lbl12 As New Label
         With lbl12
             .Text = "12"
-            .Location = New Point(12 * 11 + 4, 0)
+            .Location = New Point(12 * 11 + 6, 96)
             .Visible = True
             .Width = 20
             .Height = 12
@@ -60,7 +109,7 @@
         Dim lbl16 As New Label
         With lbl16
             .Text = "16"
-            .Location = New Point(12 * 15 + 4, 0)
+            .Location = New Point(12 * 15 + 6, 96)
             .Visible = True
             .Width = 20
             .Height = 12
@@ -69,13 +118,88 @@
         Dim lbl20 As New Label
         With lbl20
             .Text = "20"
-            .Location = New Point(12 * 19 + 4, 0)
+            .Location = New Point(12 * 19 + 6, 96)
             .Visible = True
             .Width = 20
             .Height = 12
         End With
         Me.Controls.Add(lbl20)
+
+        With clock
+            .Interval = 1000
+            .Enabled = True
+            .AutoReset = True
+            .Start()
+        End With
+#End Region
+        Me.temperature = 0
+        Me.isHeating = False
+        Me.isCooling = False
+        Me.isManual = False
+
+        For Each lbl In Me.Controls
+            If TypeOf (lbl) Is Label And lbl.name.contains("lblDay") Then
+                If Not lbl.name.contains(DateTime.Now.DayOfWeek) Then
+                    lbl.visible = False
+                End If
+            End If
+        Next
+
+        If System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern = "MM/dd/yyyy" Then
+            lblDate.Text = DateTime.Now.Month.ToString.PadLeft(2, "0") & "/" &
+            DateTime.Now.Day.ToString.PadLeft(2, "0") & "/" &
+            Strings.Right(DateTime.Now.Year.ToString, 2).PadLeft(2, "0")
+        ElseIf System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern = "dd/MM/yyyy" Then
+            lblDate.Text = DateTime.Now.Day.ToString.PadLeft(2, "0") & "/" &
+                DateTime.Now.Month.ToString.PadLeft(2, "0") & "/" &
+                Strings.Right(DateTime.Now.Year.ToString, 2).PadLeft(2, "0")
+        End If
+
     End Sub
+    Private Sub clock_tick() Handles clock.Elapsed
+        If DateTime.Now.Second Mod 2 = 0 Then
+            modificaClockText(DateTime.Now.Hour.ToString & ":" & DateTime.Now.Minute.ToString.PadLeft(2, "0"))
+        Else
+            modificaClockText(DateTime.Now.Hour.ToString & "." & DateTime.Now.Minute.ToString.PadLeft(2, "0"))
+        End If
+
+        modificalblDays()
+
+    End Sub
+    Private Delegate Sub modificaClockTextDelegate(ByVal a As String)
+    Private Sub modificaClockText(ByVal a As String)
+
+        If Me.InvokeRequired Then
+            Dim d As New modificaClockTextDelegate(AddressOf Me.modificaClockText)
+            Me.BeginInvoke(d, New Object() {a})
+        Else
+            lblClock.Text = a
+        End If
+
+    End Sub
+    Private Delegate Sub modificalblDaysDelegate()
+    Private Sub modificalblDays()
+
+        If Me.InvokeRequired Then
+            Dim d As New modificalblDaysDelegate(AddressOf Me.modificalblDays)
+            Me.BeginInvoke(d)
+        Else
+            If DateTime.Now.Hour = 0 And DateTime.Now.Minute = 0 And DateTime.Now.Second = 0 Then
+                For Each lbl In Me.Controls
+                    If TypeOf (lbl) Is Label And lbl.name.contains("lblDay") Then
+                        If lbl.name.contains(DateTime.Now.DayOfWeek) Then
+                            lbl.visible = True
+                        Else
+                            lbl.visible = False
+                        End If
+                    End If
+                Next
+            End If
+        End If
+
+    End Sub
+
+
     ''' <summary>
     ''' Controllo numerico in combinazione tra trackbar e label
     ''' </summary>

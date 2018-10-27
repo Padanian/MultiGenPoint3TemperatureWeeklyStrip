@@ -33,9 +33,12 @@ Partial Class MultiGenPoint3TemperatureWeeklyStrip
         Me.lblDay7 = New System.Windows.Forms.Label()
         Me.lblDate = New System.Windows.Forms.Label()
         Me.pbCool = New System.Windows.Forms.PictureBox()
+        Me.pbEco = New System.Windows.Forms.PictureBox()
         Me.pbManual = New System.Windows.Forms.PictureBox()
         Me.pbHeat = New System.Windows.Forms.PictureBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         CType(Me.pbCool, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbEco, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbManual, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbHeat, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -63,7 +66,7 @@ Partial Class MultiGenPoint3TemperatureWeeklyStrip
         'lblDay1
         '
         Me.lblDay1.AutoSize = True
-        Me.lblDay1.Location = New System.Drawing.Point(3, 6)
+        Me.lblDay1.Location = New System.Drawing.Point(29, 6)
         Me.lblDay1.Name = "lblDay1"
         Me.lblDay1.Size = New System.Drawing.Size(13, 13)
         Me.lblDay1.TabIndex = 2
@@ -72,7 +75,7 @@ Partial Class MultiGenPoint3TemperatureWeeklyStrip
         'lblDay2
         '
         Me.lblDay2.AutoSize = True
-        Me.lblDay2.Location = New System.Drawing.Point(13, 6)
+        Me.lblDay2.Location = New System.Drawing.Point(39, 6)
         Me.lblDay2.Name = "lblDay2"
         Me.lblDay2.Size = New System.Drawing.Size(13, 13)
         Me.lblDay2.TabIndex = 2
@@ -81,7 +84,7 @@ Partial Class MultiGenPoint3TemperatureWeeklyStrip
         'lblDay3
         '
         Me.lblDay3.AutoSize = True
-        Me.lblDay3.Location = New System.Drawing.Point(23, 6)
+        Me.lblDay3.Location = New System.Drawing.Point(49, 6)
         Me.lblDay3.Name = "lblDay3"
         Me.lblDay3.Size = New System.Drawing.Size(13, 13)
         Me.lblDay3.TabIndex = 2
@@ -90,7 +93,7 @@ Partial Class MultiGenPoint3TemperatureWeeklyStrip
         'lblDay4
         '
         Me.lblDay4.AutoSize = True
-        Me.lblDay4.Location = New System.Drawing.Point(33, 6)
+        Me.lblDay4.Location = New System.Drawing.Point(59, 6)
         Me.lblDay4.Name = "lblDay4"
         Me.lblDay4.Size = New System.Drawing.Size(13, 13)
         Me.lblDay4.TabIndex = 2
@@ -99,7 +102,7 @@ Partial Class MultiGenPoint3TemperatureWeeklyStrip
         'lblDay5
         '
         Me.lblDay5.AutoSize = True
-        Me.lblDay5.Location = New System.Drawing.Point(43, 6)
+        Me.lblDay5.Location = New System.Drawing.Point(69, 6)
         Me.lblDay5.Name = "lblDay5"
         Me.lblDay5.Size = New System.Drawing.Size(13, 13)
         Me.lblDay5.TabIndex = 2
@@ -108,7 +111,7 @@ Partial Class MultiGenPoint3TemperatureWeeklyStrip
         'lblDay6
         '
         Me.lblDay6.AutoSize = True
-        Me.lblDay6.Location = New System.Drawing.Point(53, 6)
+        Me.lblDay6.Location = New System.Drawing.Point(79, 6)
         Me.lblDay6.Name = "lblDay6"
         Me.lblDay6.Size = New System.Drawing.Size(13, 13)
         Me.lblDay6.TabIndex = 2
@@ -117,7 +120,7 @@ Partial Class MultiGenPoint3TemperatureWeeklyStrip
         'lblDay7
         '
         Me.lblDay7.AutoSize = True
-        Me.lblDay7.Location = New System.Drawing.Point(63, 6)
+        Me.lblDay7.Location = New System.Drawing.Point(89, 6)
         Me.lblDay7.Name = "lblDay7"
         Me.lblDay7.Size = New System.Drawing.Size(13, 13)
         Me.lblDay7.TabIndex = 2
@@ -142,6 +145,15 @@ Partial Class MultiGenPoint3TemperatureWeeklyStrip
         Me.pbCool.TabIndex = 1
         Me.pbCool.TabStop = False
         '
+        'pbEco
+        '
+        Me.pbEco.Image = Global.MultiGenPoint3TemperatureWeeklyStrip.My.Resources.Resources.if_coda_eco_ecology_environment_flower_green_leaf_nature_paper_plant_392515_1_
+        Me.pbEco.Location = New System.Drawing.Point(163, 3)
+        Me.pbEco.Name = "pbEco"
+        Me.pbEco.Size = New System.Drawing.Size(16, 16)
+        Me.pbEco.TabIndex = 1
+        Me.pbEco.TabStop = False
+        '
         'pbManual
         '
         Me.pbManual.Image = Global.MultiGenPoint3TemperatureWeeklyStrip.My.Resources.Resources.if_icon_3_high_five_329409
@@ -160,6 +172,15 @@ Partial Class MultiGenPoint3TemperatureWeeklyStrip
         Me.pbHeat.TabIndex = 1
         Me.pbHeat.TabStop = False
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(1, 6)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(26, 13)
+        Me.Label1.TabIndex = 2
+        Me.Label1.Text = "Day"
+        '
         'MultiGenPoint3TemperatureWeeklyStrip
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -170,8 +191,10 @@ Partial Class MultiGenPoint3TemperatureWeeklyStrip
         Me.Controls.Add(Me.lblDay4)
         Me.Controls.Add(Me.lblDay3)
         Me.Controls.Add(Me.lblDay2)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lblDay1)
         Me.Controls.Add(Me.pbCool)
+        Me.Controls.Add(Me.pbEco)
         Me.Controls.Add(Me.pbManual)
         Me.Controls.Add(Me.pbHeat)
         Me.Controls.Add(Me.lblDate)
@@ -182,6 +205,7 @@ Partial Class MultiGenPoint3TemperatureWeeklyStrip
         Me.Name = "MultiGenPoint3TemperatureWeeklyStrip"
         Me.Size = New System.Drawing.Size(294, 130)
         CType(Me.pbCool, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbEco, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pbManual, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pbHeat, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -202,4 +226,6 @@ Partial Class MultiGenPoint3TemperatureWeeklyStrip
     Friend WithEvents lblDay7 As Label
     Friend WithEvents lblDate As Label
     Friend WithEvents pbManual As PictureBox
+    Friend WithEvents pbEco As PictureBox
+    Friend WithEvents Label1 As Label
 End Class

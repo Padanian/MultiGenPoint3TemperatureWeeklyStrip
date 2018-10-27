@@ -63,6 +63,16 @@ Namespace My.Resources
         '''<summary>
         '''  Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property if_coda_eco_ecology_environment_flower_green_leaf_nature_paper_plant_392515_1_() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("if_coda_eco_ecology_environment_flower_green_leaf_nature_paper_plant_392515(1)", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property if_icon_3_high_five_329409() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("if_icon_3_high_five_329409", resourceCulture)

@@ -6,6 +6,9 @@ Public Class MultiGenPoint3TemperatureWeeklyStrip
     Private m_isHeating As Boolean
     Private m_isCooling As Boolean
     Private m_isManual As Boolean
+    Private m_isOff As Boolean
+    Private m_isEco As Boolean
+    Public Shared myWeeklySchedule As New weeklyScheduler
     Public Property isHeating As Boolean
         Get
             isHeating = m_isHeating
@@ -33,7 +36,53 @@ Public Class MultiGenPoint3TemperatureWeeklyStrip
             m_isManual = isManual
         End Set
     End Property
-
+    Public Property isEco As Boolean
+        Get
+            isEco = m_isEco
+        End Get
+        Set(isEco As Boolean)
+            pbEco.Visible = isEco
+            m_isEco = isEco
+        End Set
+    End Property
+    Public Property isOff As Boolean
+        Get
+            isOff = m_isOff
+        End Get
+        Set(isOff As Boolean)
+            m_isOff = isOff
+            If isOff = True Then
+                clock.Enabled = False
+                For Each ctl In Me.Controls
+                    If ctl.name <> "lblClock" Then
+                        ctl.visible = False
+                    Else
+                        lblClock.Text = " OFF"
+                    End If
+                Next
+            Else
+                clock.Enabled = True
+                For Each ctl In Me.Controls
+                    ctl.visible = True
+                    If ctl.name = pbCool.Name Then
+                        ctl.visible = isCooling
+                    ElseIf ctl.name = pbHeat.Name Then
+                        ctl.visible = isHeating
+                    ElseIf ctl.name = pbManual.Name Then
+                        ctl.visible = isManual
+                    ElseIf ctl.name = pbEco.Name Then
+                        ctl.visible = isEco
+                    End If
+                    If TypeOf (ctl) Is Label And ctl.name.contains("lblDay") Then
+                        If Not ctl.name.contains(DateTime.Now.DayOfWeek) Then
+                            ctl.visible = False
+                        End If
+                    End If
+                    clock_tick()
+                Next
+            End If
+        End Set
+    End Property
     Public Property temperature As Double
         Get
             temperature = m_temperature
@@ -135,10 +184,12 @@ Public Class MultiGenPoint3TemperatureWeeklyStrip
             .Start()
         End With
 #End Region
-        Me.temperature = 0
+        Me.temperature = 88.8
         Me.isHeating = False
         Me.isCooling = False
         Me.isManual = False
+        Me.isEco = False
+
 
         For Each lbl In Me.Controls
             If TypeOf (lbl) Is Label And lbl.name.contains("lblDay") Then
@@ -201,10 +252,8 @@ Public Class MultiGenPoint3TemperatureWeeklyStrip
         End If
 
     End Sub
-
-
     ''' <summary>
-    ''' Controllo numerico in combinazione tra trackbar e label
+    ''' Settaggio fasce orarie
     ''' </summary>
     ''' <param name="dF1On">Inizio prima fascia</param>
     ''' <param name="dF1Off">Fine prima fascia</param>
@@ -213,7 +262,6 @@ Public Class MultiGenPoint3TemperatureWeeklyStrip
     ''' <param name="dF3On">Inizio terza fascia</param>
     ''' <param name="dF3Off">Fine quarta fascia</param>
     ''' <remarks></remarks>
-
     Public Sub Settings(ByVal dF1On As DateTime,
                          dF1Off As DateTime,
                          dF2On As DateTime,

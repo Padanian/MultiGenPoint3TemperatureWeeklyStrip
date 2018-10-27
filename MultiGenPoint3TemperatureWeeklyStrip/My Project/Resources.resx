@@ -118,13 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="if_icon_3_high_five_329409" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\if_icon_3_high_five_329409.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="if_sun_226556" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\if_sun_226556.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="if_snowflake-alt2_372618" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\if_snowflake-alt2_372618.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="if_icon_3_high_five_329409" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\if_icon_3_high_five_329409.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="if_coda_eco_ecology_environment_flower_green_leaf_nature_paper_plant_392515(1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\if_coda_eco_ecology_environment_flower_green_leaf_nature_paper_plant_392515(1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -24,13 +24,7 @@ Partial Class MultiGenPoint3TemperatureWeeklyStrip
     Private Sub InitializeComponent()
         Me.lblClock = New System.Windows.Forms.Label()
         Me.lblTemperature = New System.Windows.Forms.Label()
-        Me.lblDay1 = New System.Windows.Forms.Label()
-        Me.lblDay2 = New System.Windows.Forms.Label()
-        Me.lblDay3 = New System.Windows.Forms.Label()
-        Me.lblDay4 = New System.Windows.Forms.Label()
-        Me.lblDay5 = New System.Windows.Forms.Label()
-        Me.lblDay6 = New System.Windows.Forms.Label()
-        Me.lblDay7 = New System.Windows.Forms.Label()
+        Me.lblDay = New System.Windows.Forms.Label()
         Me.lblDate = New System.Windows.Forms.Label()
         Me.pbCool = New System.Windows.Forms.PictureBox()
         Me.pbEco = New System.Windows.Forms.PictureBox()
@@ -63,68 +57,14 @@ Partial Class MultiGenPoint3TemperatureWeeklyStrip
         Me.lblTemperature.Text = "12.3°c"
         Me.lblTemperature.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'lblDay1
+        'lblDay
         '
-        Me.lblDay1.AutoSize = True
-        Me.lblDay1.Location = New System.Drawing.Point(29, 6)
-        Me.lblDay1.Name = "lblDay1"
-        Me.lblDay1.Size = New System.Drawing.Size(13, 13)
-        Me.lblDay1.TabIndex = 2
-        Me.lblDay1.Text = "1"
-        '
-        'lblDay2
-        '
-        Me.lblDay2.AutoSize = True
-        Me.lblDay2.Location = New System.Drawing.Point(39, 6)
-        Me.lblDay2.Name = "lblDay2"
-        Me.lblDay2.Size = New System.Drawing.Size(13, 13)
-        Me.lblDay2.TabIndex = 2
-        Me.lblDay2.Text = "2"
-        '
-        'lblDay3
-        '
-        Me.lblDay3.AutoSize = True
-        Me.lblDay3.Location = New System.Drawing.Point(49, 6)
-        Me.lblDay3.Name = "lblDay3"
-        Me.lblDay3.Size = New System.Drawing.Size(13, 13)
-        Me.lblDay3.TabIndex = 2
-        Me.lblDay3.Text = "3"
-        '
-        'lblDay4
-        '
-        Me.lblDay4.AutoSize = True
-        Me.lblDay4.Location = New System.Drawing.Point(59, 6)
-        Me.lblDay4.Name = "lblDay4"
-        Me.lblDay4.Size = New System.Drawing.Size(13, 13)
-        Me.lblDay4.TabIndex = 2
-        Me.lblDay4.Text = "4"
-        '
-        'lblDay5
-        '
-        Me.lblDay5.AutoSize = True
-        Me.lblDay5.Location = New System.Drawing.Point(69, 6)
-        Me.lblDay5.Name = "lblDay5"
-        Me.lblDay5.Size = New System.Drawing.Size(13, 13)
-        Me.lblDay5.TabIndex = 2
-        Me.lblDay5.Text = "5"
-        '
-        'lblDay6
-        '
-        Me.lblDay6.AutoSize = True
-        Me.lblDay6.Location = New System.Drawing.Point(79, 6)
-        Me.lblDay6.Name = "lblDay6"
-        Me.lblDay6.Size = New System.Drawing.Size(13, 13)
-        Me.lblDay6.TabIndex = 2
-        Me.lblDay6.Text = "6"
-        '
-        'lblDay7
-        '
-        Me.lblDay7.AutoSize = True
-        Me.lblDay7.Location = New System.Drawing.Point(89, 6)
-        Me.lblDay7.Name = "lblDay7"
-        Me.lblDay7.Size = New System.Drawing.Size(13, 13)
-        Me.lblDay7.TabIndex = 2
-        Me.lblDay7.Text = "7"
+        Me.lblDay.AutoSize = True
+        Me.lblDay.Location = New System.Drawing.Point(29, 6)
+        Me.lblDay.Name = "lblDay"
+        Me.lblDay.Size = New System.Drawing.Size(13, 13)
+        Me.lblDay.TabIndex = 2
+        Me.lblDay.Text = "1"
         '
         'lblDate
         '
@@ -185,14 +125,8 @@ Partial Class MultiGenPoint3TemperatureWeeklyStrip
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.Controls.Add(Me.lblDay7)
-        Me.Controls.Add(Me.lblDay6)
-        Me.Controls.Add(Me.lblDay5)
-        Me.Controls.Add(Me.lblDay4)
-        Me.Controls.Add(Me.lblDay3)
-        Me.Controls.Add(Me.lblDay2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.lblDay1)
+        Me.Controls.Add(Me.lblDay)
         Me.Controls.Add(Me.pbCool)
         Me.Controls.Add(Me.pbEco)
         Me.Controls.Add(Me.pbManual)
@@ -217,13 +151,7 @@ Partial Class MultiGenPoint3TemperatureWeeklyStrip
     Friend WithEvents lblTemperature As Label
     Friend WithEvents pbHeat As PictureBox
     Friend WithEvents pbCool As PictureBox
-    Friend WithEvents lblDay1 As Label
-    Friend WithEvents lblDay2 As Label
-    Friend WithEvents lblDay3 As Label
-    Friend WithEvents lblDay4 As Label
-    Friend WithEvents lblDay5 As Label
-    Friend WithEvents lblDay6 As Label
-    Friend WithEvents lblDay7 As Label
+    Friend WithEvents lblDay As Label
     Friend WithEvents lblDate As Label
     Friend WithEvents pbManual As PictureBox
     Friend WithEvents pbEco As PictureBox

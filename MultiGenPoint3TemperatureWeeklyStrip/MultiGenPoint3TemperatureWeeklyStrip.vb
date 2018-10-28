@@ -1,5 +1,4 @@
 ﻿Imports System.Globalization
-
 Public Class MultiGenPoint3TemperatureWeeklyStrip
     Dim WithEvents clock As New Timers.Timer
     Private m_temperature As Double
@@ -129,6 +128,7 @@ Public Class MultiGenPoint3TemperatureWeeklyStrip
             Me.Controls.Add(pbTickT3)
             AddHandler pbTickT3.Click, AddressOf pbSquares_Click
         Next
+        AddHandler Me.Click, AddressOf pbSquares_Click
 
 #Region "Labels"
         Dim lbl04 As New Label
@@ -190,14 +190,13 @@ Public Class MultiGenPoint3TemperatureWeeklyStrip
         Me.isManual = False
         Me.isEco = False
 
+        If DateTime.Now.DayOfWeek <> 0 Then
+            lblDay.Text = DateTime.Now.DayOfWeek
+        Else
+            lblDay.Text = "7"
+        End If
 
-        For Each lbl In Me.Controls
-            If TypeOf (lbl) Is Label And lbl.name.contains("lblDay") Then
-                If Not lbl.name.contains(DateTime.Now.DayOfWeek) Then
-                    lbl.visible = False
-                End If
-            End If
-        Next
+
 
         If System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern = "MM/dd/yyyy" Then
             lblDate.Text = DateTime.Now.Month.ToString.PadLeft(2, "0") & "/" &
@@ -252,94 +251,9 @@ Public Class MultiGenPoint3TemperatureWeeklyStrip
         End If
 
     End Sub
-    ''' <summary>
-    ''' Settaggio fasce orarie
-    ''' </summary>
-    ''' <param name="dF1On">Inizio prima fascia</param>
-    ''' <param name="dF1Off">Fine prima fascia</param>
-    ''' <param name="dF2On">Inizio seconda fascia)</param>
-    ''' <param name="dF2Off">Fine seconda fascia</param>
-    ''' <param name="dF3On">Inizio terza fascia</param>
-    ''' <param name="dF3Off">Fine quarta fascia</param>
-    ''' <remarks></remarks>
-    Public Sub Settings(ByVal dF1On As DateTime,
-                         dF1Off As DateTime,
-                         dF2On As DateTime,
-                         dF2Off As DateTime,
-                         dF3On As DateTime,
-                         dF3Off As DateTime)
-
-        Dim F1On As Integer = dF1On.Hour * 12 + dF1On.Minute \ 5
-        Dim F1Off As Integer = dF1Off.Hour * 12 + dF1Off.Minute \ 5
-        Dim F2On As Integer = dF2On.Hour * 12 + dF2On.Minute \ 5
-        Dim F2Off As Integer = dF2Off.Hour * 12 + dF2Off.Minute \ 5
-        Dim F3On As Integer = dF3On.Hour * 12 + dF3On.Minute \ 5
-        Dim F3Off As Integer = dF3Off.Hour * 12 + dF3Off.Minute \ 5
-
-        If F1On > F1Off Or (F1On = 0 And F1Off = 0) Then
-            MsgBox("Fascia oraria F1 non impostata correttamente")
-            Exit Sub
-        End If
-        If F2On > F2Off Then
-            MsgBox("Fascia oraria F2 non impostata correttamente")
-            Exit Sub
-        End If
-        If F3On > F3Off Then
-            MsgBox("Fascia oraria F3 non impostata correttamente")
-            Exit Sub
-        End If
-
-        For Each ctr In Me.Controls
-            If TypeOf (ctr) Is PictureBox Then
-                If ctr.tag?.contains("pbSquares") Then
-                    ctr.dispose
-                End If
-            End If
-        Next
-
-        Application.DoEvents()
-
-        Dim pbSquares1 As PictureBox = New PictureBox
-        With pbSquares1
-            .Width = (F1Off - F1On)
-            .Height = 8
-            .Location = New Point(.Location.X + F1On, .Location.Y + 22)
-            .BackColor = Color.Black
-            .Visible = True
-            .Tag = "pbSquares1"
-        End With
-        Me.Controls.Add(pbSquares1)
-
-        Dim pbSquares2 As PictureBox = New PictureBox
-        With pbSquares2
-            .Width = (F2Off - F2On)
-            .Height = 8
-            .Location = New Point(.Location.X + F2On, .Location.Y + 22)
-            .BackColor = Color.Black
-            .Visible = True
-            .Tag = "pbSquares2"
-        End With
-        Me.Controls.Add(pbSquares2)
-
-
-        Dim pbSquares3 As PictureBox = New PictureBox
-        With pbSquares3
-            .Width = (F3Off - F3On)
-            .Height = 8
-            .Location = New Point(.Location.X + F3On, .Location.Y + 22)
-            .BackColor = Color.Black
-            .Visible = True
-            .Tag = "pbSquares3"
-        End With
-        Me.Controls.Add(pbSquares3)
-
-
-        Application.DoEvents()
-
-
-    End Sub
     Public Sub pbSquares_Click()
         dlgTemperatureCalendar.ShowDialog()
     End Sub
+
 
 End Class

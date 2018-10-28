@@ -28,11 +28,11 @@ Partial Class dlgTemperatureCalendar
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.gbDays = New System.Windows.Forms.GroupBox()
         Me.chkDayAll = New System.Windows.Forms.CheckBox()
-        Me.rbDay6_7 = New System.Windows.Forms.RadioButton()
-        Me.rbDay1_5 = New System.Windows.Forms.RadioButton()
-        Me.rbDay7 = New System.Windows.Forms.RadioButton()
+        Me.rbFestivo = New System.Windows.Forms.RadioButton()
+        Me.rbFeriale = New System.Windows.Forms.RadioButton()
+        Me.rbDay0 = New System.Windows.Forms.RadioButton()
         Me.rbDay6 = New System.Windows.Forms.RadioButton()
         Me.rbDay5 = New System.Windows.Forms.RadioButton()
         Me.rbDay4 = New System.Windows.Forms.RadioButton()
@@ -40,48 +40,60 @@ Partial Class dlgTemperatureCalendar
         Me.rbDay2 = New System.Windows.Forms.RadioButton()
         Me.rbDay1 = New System.Windows.Forms.RadioButton()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
+        Me.nupHeatT1 = New System.Windows.Forms.NumericUpDown()
+        Me.nupHeatT2 = New System.Windows.Forms.NumericUpDown()
+        Me.nupHeatT3 = New System.Windows.Forms.NumericUpDown()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
-        Me.NumericUpDown2 = New System.Windows.Forms.NumericUpDown()
-        Me.NumericUpDown3 = New System.Windows.Forms.NumericUpDown()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.NumericUpDown4 = New System.Windows.Forms.NumericUpDown()
-        Me.NumericUpDown5 = New System.Windows.Forms.NumericUpDown()
-        Me.NumericUpDown6 = New System.Windows.Forms.NumericUpDown()
+        Me.nupCoolT3 = New System.Windows.Forms.NumericUpDown()
+        Me.nupCoolT2 = New System.Windows.Forms.NumericUpDown()
+        Me.nupCoolT1 = New System.Windows.Forms.NumericUpDown()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.NumericUpDown7 = New System.Windows.Forms.NumericUpDown()
-        Me.NumericUpDown8 = New System.Windows.Forms.NumericUpDown()
+        Me.nupHeatBP = New System.Windows.Forms.NumericUpDown()
+        Me.nupCoolBP = New System.Windows.Forms.NumericUpDown()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-        Me.NumericUpDown9 = New System.Windows.Forms.NumericUpDown()
-        Me.NumericUpDown10 = New System.Windows.Forms.NumericUpDown()
-        Me.NumericUpDown11 = New System.Windows.Forms.NumericUpDown()
+        Me.nupFrostProt = New System.Windows.Forms.NumericUpDown()
+        Me.nupHeatEco = New System.Windows.Forms.NumericUpDown()
+        Me.nupCoolEco = New System.Windows.Forms.NumericUpDown()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.TableLayoutPanel1.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
+        Me.gbDays.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
-        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NumericUpDown3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.nupHeatT1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.nupHeatT2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.nupHeatT3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
-        CType(Me.NumericUpDown4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NumericUpDown5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NumericUpDown6, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.nupCoolT3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.nupCoolT2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.nupCoolT1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
-        CType(Me.NumericUpDown7, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NumericUpDown8, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.nupHeatBP, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.nupCoolBP, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox5.SuspendLayout()
-        CType(Me.NumericUpDown9, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NumericUpDown10, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NumericUpDown11, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.nupFrostProt, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.nupHeatEco, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.nupCoolEco, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -92,7 +104,7 @@ Partial Class dlgTemperatureCalendar
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.OK_Button, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Cancel_Button, 1, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(626, 305)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(626, 320)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
@@ -121,7 +133,7 @@ Partial Class dlgTemperatureCalendar
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(18, 165)
+        Me.Label1.Location = New System.Drawing.Point(12, 165)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(19, 13)
         Me.Label1.TabIndex = 2
@@ -130,7 +142,7 @@ Partial Class dlgTemperatureCalendar
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(18, 180)
+        Me.Label2.Location = New System.Drawing.Point(12, 180)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(19, 13)
         Me.Label2.TabIndex = 2
@@ -139,29 +151,29 @@ Partial Class dlgTemperatureCalendar
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(18, 196)
+        Me.Label3.Location = New System.Drawing.Point(13, 196)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(17, 13)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "T1"
         '
-        'GroupBox1
+        'gbDays
         '
-        Me.GroupBox1.Controls.Add(Me.chkDayAll)
-        Me.GroupBox1.Controls.Add(Me.rbDay6_7)
-        Me.GroupBox1.Controls.Add(Me.rbDay1_5)
-        Me.GroupBox1.Controls.Add(Me.rbDay7)
-        Me.GroupBox1.Controls.Add(Me.rbDay6)
-        Me.GroupBox1.Controls.Add(Me.rbDay5)
-        Me.GroupBox1.Controls.Add(Me.rbDay4)
-        Me.GroupBox1.Controls.Add(Me.rbDay3)
-        Me.GroupBox1.Controls.Add(Me.rbDay2)
-        Me.GroupBox1.Controls.Add(Me.rbDay1)
-        Me.GroupBox1.Location = New System.Drawing.Point(34, 122)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(717, 37)
-        Me.GroupBox1.TabIndex = 3
-        Me.GroupBox1.TabStop = False
+        Me.gbDays.Controls.Add(Me.chkDayAll)
+        Me.gbDays.Controls.Add(Me.rbFestivo)
+        Me.gbDays.Controls.Add(Me.rbFeriale)
+        Me.gbDays.Controls.Add(Me.rbDay0)
+        Me.gbDays.Controls.Add(Me.rbDay6)
+        Me.gbDays.Controls.Add(Me.rbDay5)
+        Me.gbDays.Controls.Add(Me.rbDay4)
+        Me.gbDays.Controls.Add(Me.rbDay3)
+        Me.gbDays.Controls.Add(Me.rbDay2)
+        Me.gbDays.Controls.Add(Me.rbDay1)
+        Me.gbDays.Location = New System.Drawing.Point(34, 122)
+        Me.gbDays.Name = "gbDays"
+        Me.gbDays.Size = New System.Drawing.Size(717, 37)
+        Me.gbDays.TabIndex = 3
+        Me.gbDays.TabStop = False
         '
         'chkDayAll
         '
@@ -174,41 +186,41 @@ Partial Class dlgTemperatureCalendar
         Me.chkDayAll.Text = "Tutti i giorni"
         Me.chkDayAll.UseVisualStyleBackColor = True
         '
-        'rbDay6_7
+        'rbFestivo
         '
-        Me.rbDay6_7.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.rbDay6_7.AutoSize = True
-        Me.rbDay6_7.Location = New System.Drawing.Point(653, 14)
-        Me.rbDay6_7.Name = "rbDay6_7"
-        Me.rbDay6_7.Size = New System.Drawing.Size(52, 17)
-        Me.rbDay6_7.TabIndex = 0
-        Me.rbDay6_7.TabStop = True
-        Me.rbDay6_7.Text = "Festivi"
-        Me.rbDay6_7.UseVisualStyleBackColor = True
+        Me.rbFestivo.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.rbFestivo.AutoSize = True
+        Me.rbFestivo.Location = New System.Drawing.Point(653, 14)
+        Me.rbFestivo.Name = "rbFestivo"
+        Me.rbFestivo.Size = New System.Drawing.Size(52, 17)
+        Me.rbFestivo.TabIndex = 0
+        Me.rbFestivo.TabStop = True
+        Me.rbFestivo.Text = "Festivi"
+        Me.rbFestivo.UseVisualStyleBackColor = True
         '
-        'rbDay1_5
+        'rbFeriale
         '
-        Me.rbDay1_5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.rbDay1_5.AutoSize = True
-        Me.rbDay1_5.Location = New System.Drawing.Point(596, 14)
-        Me.rbDay1_5.Name = "rbDay1_5"
-        Me.rbDay1_5.Size = New System.Drawing.Size(52, 17)
-        Me.rbDay1_5.TabIndex = 0
-        Me.rbDay1_5.TabStop = True
-        Me.rbDay1_5.Text = "Feriali"
-        Me.rbDay1_5.UseVisualStyleBackColor = True
+        Me.rbFeriale.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.rbFeriale.AutoSize = True
+        Me.rbFeriale.Location = New System.Drawing.Point(596, 14)
+        Me.rbFeriale.Name = "rbFeriale"
+        Me.rbFeriale.Size = New System.Drawing.Size(52, 17)
+        Me.rbFeriale.TabIndex = 0
+        Me.rbFeriale.TabStop = True
+        Me.rbFeriale.Text = "Feriali"
+        Me.rbFeriale.UseVisualStyleBackColor = True
         '
-        'rbDay7
+        'rbDay0
         '
-        Me.rbDay7.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.rbDay7.AutoSize = True
-        Me.rbDay7.Location = New System.Drawing.Point(405, 14)
-        Me.rbDay7.Name = "rbDay7"
-        Me.rbDay7.Size = New System.Drawing.Size(73, 17)
-        Me.rbDay7.TabIndex = 0
-        Me.rbDay7.TabStop = True
-        Me.rbDay7.Text = "Domenica"
-        Me.rbDay7.UseVisualStyleBackColor = True
+        Me.rbDay0.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.rbDay0.AutoSize = True
+        Me.rbDay0.Location = New System.Drawing.Point(405, 14)
+        Me.rbDay0.Name = "rbDay0"
+        Me.rbDay0.Size = New System.Drawing.Size(73, 17)
+        Me.rbDay0.TabIndex = 0
+        Me.rbDay0.TabStop = True
+        Me.rbDay0.Text = "Domenica"
+        Me.rbDay0.UseVisualStyleBackColor = True
         '
         'rbDay6
         '
@@ -284,137 +296,147 @@ Partial Class dlgTemperatureCalendar
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.NumericUpDown3)
-        Me.GroupBox2.Controls.Add(Me.NumericUpDown2)
-        Me.GroupBox2.Controls.Add(Me.NumericUpDown1)
+        Me.GroupBox2.Controls.Add(Me.nupHeatT1)
+        Me.GroupBox2.Controls.Add(Me.nupHeatT2)
+        Me.GroupBox2.Controls.Add(Me.nupHeatT3)
         Me.GroupBox2.Controls.Add(Me.Label6)
         Me.GroupBox2.Controls.Add(Me.Label5)
         Me.GroupBox2.Controls.Add(Me.Label4)
         Me.GroupBox2.Location = New System.Drawing.Point(34, 12)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(147, 104)
+        Me.GroupBox2.Size = New System.Drawing.Size(130, 104)
         Me.GroupBox2.TabIndex = 4
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Setpoint riscaldamento"
         '
-        'Label4
+        'nupHeatT1
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(50, 76)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(17, 13)
-        Me.Label4.TabIndex = 0
-        Me.Label4.Text = "T1"
+        Me.nupHeatT1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.nupHeatT1.DecimalPlaces = 1
+        Me.nupHeatT1.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
+        Me.nupHeatT1.Location = New System.Drawing.Point(55, 18)
+        Me.nupHeatT1.Maximum = New Decimal(New Integer() {999, 0, 0, 65536})
+        Me.nupHeatT1.Name = "nupHeatT1"
+        Me.nupHeatT1.Size = New System.Drawing.Size(47, 22)
+        Me.nupHeatT1.TabIndex = 1
+        Me.nupHeatT1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.nupHeatT1.Value = New Decimal(New Integer() {999, 0, 0, 65536})
         '
-        'Label5
+        'nupHeatT2
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(48, 48)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(19, 13)
-        Me.Label5.TabIndex = 0
-        Me.Label5.Text = "T2"
+        Me.nupHeatT2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.nupHeatT2.DecimalPlaces = 1
+        Me.nupHeatT2.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
+        Me.nupHeatT2.Location = New System.Drawing.Point(55, 46)
+        Me.nupHeatT2.Maximum = New Decimal(New Integer() {999, 0, 0, 65536})
+        Me.nupHeatT2.Name = "nupHeatT2"
+        Me.nupHeatT2.Size = New System.Drawing.Size(47, 22)
+        Me.nupHeatT2.TabIndex = 1
+        Me.nupHeatT2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.nupHeatT2.Value = New Decimal(New Integer() {999, 0, 0, 65536})
+        '
+        'nupHeatT3
+        '
+        Me.nupHeatT3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.nupHeatT3.DecimalPlaces = 1
+        Me.nupHeatT3.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
+        Me.nupHeatT3.Location = New System.Drawing.Point(55, 74)
+        Me.nupHeatT3.Maximum = New Decimal(New Integer() {999, 0, 0, 65536})
+        Me.nupHeatT3.Name = "nupHeatT3"
+        Me.nupHeatT3.Size = New System.Drawing.Size(47, 22)
+        Me.nupHeatT3.TabIndex = 1
+        Me.nupHeatT3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.nupHeatT3.Value = New Decimal(New Integer() {999, 0, 0, 65536})
         '
         'Label6
         '
+        Me.Label6.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(48, 20)
+        Me.Label6.Location = New System.Drawing.Point(31, 20)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(19, 13)
         Me.Label6.TabIndex = 0
         Me.Label6.Text = "T3"
         '
-        'NumericUpDown1
+        'Label5
         '
-        Me.NumericUpDown1.DecimalPlaces = 1
-        Me.NumericUpDown1.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
-        Me.NumericUpDown1.Location = New System.Drawing.Point(72, 74)
-        Me.NumericUpDown1.Maximum = New Decimal(New Integer() {999, 0, 0, 65536})
-        Me.NumericUpDown1.Name = "NumericUpDown1"
-        Me.NumericUpDown1.Size = New System.Drawing.Size(47, 22)
-        Me.NumericUpDown1.TabIndex = 1
-        Me.NumericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.NumericUpDown1.Value = New Decimal(New Integer() {999, 0, 0, 65536})
+        Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(31, 48)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(19, 13)
+        Me.Label5.TabIndex = 0
+        Me.Label5.Text = "T2"
         '
-        'NumericUpDown2
+        'Label4
         '
-        Me.NumericUpDown2.DecimalPlaces = 1
-        Me.NumericUpDown2.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
-        Me.NumericUpDown2.Location = New System.Drawing.Point(72, 46)
-        Me.NumericUpDown2.Maximum = New Decimal(New Integer() {999, 0, 0, 65536})
-        Me.NumericUpDown2.Name = "NumericUpDown2"
-        Me.NumericUpDown2.Size = New System.Drawing.Size(47, 22)
-        Me.NumericUpDown2.TabIndex = 1
-        Me.NumericUpDown2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.NumericUpDown2.Value = New Decimal(New Integer() {999, 0, 0, 65536})
-        '
-        'NumericUpDown3
-        '
-        Me.NumericUpDown3.DecimalPlaces = 1
-        Me.NumericUpDown3.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
-        Me.NumericUpDown3.Location = New System.Drawing.Point(72, 18)
-        Me.NumericUpDown3.Maximum = New Decimal(New Integer() {999, 0, 0, 65536})
-        Me.NumericUpDown3.Name = "NumericUpDown3"
-        Me.NumericUpDown3.Size = New System.Drawing.Size(47, 22)
-        Me.NumericUpDown3.TabIndex = 1
-        Me.NumericUpDown3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.NumericUpDown3.Value = New Decimal(New Integer() {999, 0, 0, 65536})
+        Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(33, 76)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(17, 13)
+        Me.Label4.TabIndex = 0
+        Me.Label4.Text = "T1"
         '
         'GroupBox3
         '
-        Me.GroupBox3.Controls.Add(Me.NumericUpDown4)
-        Me.GroupBox3.Controls.Add(Me.NumericUpDown5)
-        Me.GroupBox3.Controls.Add(Me.NumericUpDown6)
+        Me.GroupBox3.Controls.Add(Me.nupCoolT3)
+        Me.GroupBox3.Controls.Add(Me.nupCoolT2)
+        Me.GroupBox3.Controls.Add(Me.nupCoolT1)
         Me.GroupBox3.Controls.Add(Me.Label7)
         Me.GroupBox3.Controls.Add(Me.Label8)
         Me.GroupBox3.Controls.Add(Me.Label9)
-        Me.GroupBox3.Location = New System.Drawing.Point(199, 12)
+        Me.GroupBox3.Location = New System.Drawing.Point(170, 12)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(147, 104)
+        Me.GroupBox3.Size = New System.Drawing.Size(133, 104)
         Me.GroupBox3.TabIndex = 4
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Setpoint raffrescamento"
         '
-        'NumericUpDown4
+        'nupCoolT3
         '
-        Me.NumericUpDown4.DecimalPlaces = 1
-        Me.NumericUpDown4.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
-        Me.NumericUpDown4.Location = New System.Drawing.Point(72, 18)
-        Me.NumericUpDown4.Maximum = New Decimal(New Integer() {999, 0, 0, 65536})
-        Me.NumericUpDown4.Name = "NumericUpDown4"
-        Me.NumericUpDown4.Size = New System.Drawing.Size(47, 22)
-        Me.NumericUpDown4.TabIndex = 1
-        Me.NumericUpDown4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.NumericUpDown4.Value = New Decimal(New Integer() {999, 0, 0, 65536})
+        Me.nupCoolT3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.nupCoolT3.DecimalPlaces = 1
+        Me.nupCoolT3.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
+        Me.nupCoolT3.Location = New System.Drawing.Point(58, 18)
+        Me.nupCoolT3.Maximum = New Decimal(New Integer() {999, 0, 0, 65536})
+        Me.nupCoolT3.Name = "nupCoolT3"
+        Me.nupCoolT3.Size = New System.Drawing.Size(47, 22)
+        Me.nupCoolT3.TabIndex = 1
+        Me.nupCoolT3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.nupCoolT3.Value = New Decimal(New Integer() {999, 0, 0, 65536})
         '
-        'NumericUpDown5
+        'nupCoolT2
         '
-        Me.NumericUpDown5.DecimalPlaces = 1
-        Me.NumericUpDown5.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
-        Me.NumericUpDown5.Location = New System.Drawing.Point(72, 46)
-        Me.NumericUpDown5.Maximum = New Decimal(New Integer() {999, 0, 0, 65536})
-        Me.NumericUpDown5.Name = "NumericUpDown5"
-        Me.NumericUpDown5.Size = New System.Drawing.Size(47, 22)
-        Me.NumericUpDown5.TabIndex = 1
-        Me.NumericUpDown5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.NumericUpDown5.Value = New Decimal(New Integer() {999, 0, 0, 65536})
+        Me.nupCoolT2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.nupCoolT2.DecimalPlaces = 1
+        Me.nupCoolT2.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
+        Me.nupCoolT2.Location = New System.Drawing.Point(58, 46)
+        Me.nupCoolT2.Maximum = New Decimal(New Integer() {999, 0, 0, 65536})
+        Me.nupCoolT2.Name = "nupCoolT2"
+        Me.nupCoolT2.Size = New System.Drawing.Size(47, 22)
+        Me.nupCoolT2.TabIndex = 1
+        Me.nupCoolT2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.nupCoolT2.Value = New Decimal(New Integer() {999, 0, 0, 65536})
         '
-        'NumericUpDown6
+        'nupCoolT1
         '
-        Me.NumericUpDown6.DecimalPlaces = 1
-        Me.NumericUpDown6.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
-        Me.NumericUpDown6.Location = New System.Drawing.Point(72, 74)
-        Me.NumericUpDown6.Maximum = New Decimal(New Integer() {999, 0, 0, 65536})
-        Me.NumericUpDown6.Name = "NumericUpDown6"
-        Me.NumericUpDown6.Size = New System.Drawing.Size(47, 22)
-        Me.NumericUpDown6.TabIndex = 1
-        Me.NumericUpDown6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.NumericUpDown6.Value = New Decimal(New Integer() {999, 0, 0, 65536})
+        Me.nupCoolT1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.nupCoolT1.DecimalPlaces = 1
+        Me.nupCoolT1.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
+        Me.nupCoolT1.Location = New System.Drawing.Point(58, 74)
+        Me.nupCoolT1.Maximum = New Decimal(New Integer() {999, 0, 0, 65536})
+        Me.nupCoolT1.Name = "nupCoolT1"
+        Me.nupCoolT1.Size = New System.Drawing.Size(47, 22)
+        Me.nupCoolT1.TabIndex = 1
+        Me.nupCoolT1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.nupCoolT1.Value = New Decimal(New Integer() {999, 0, 0, 65536})
         '
         'Label7
         '
+        Me.Label7.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(48, 20)
+        Me.Label7.Location = New System.Drawing.Point(34, 20)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(19, 13)
         Me.Label7.TabIndex = 0
@@ -422,8 +444,9 @@ Partial Class dlgTemperatureCalendar
         '
         'Label8
         '
+        Me.Label8.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(48, 48)
+        Me.Label8.Location = New System.Drawing.Point(34, 48)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(19, 13)
         Me.Label8.TabIndex = 0
@@ -431,8 +454,9 @@ Partial Class dlgTemperatureCalendar
         '
         'Label9
         '
+        Me.Label9.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(50, 76)
+        Me.Label9.Location = New System.Drawing.Point(36, 76)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(17, 13)
         Me.Label9.TabIndex = 0
@@ -440,40 +464,41 @@ Partial Class dlgTemperatureCalendar
         '
         'GroupBox4
         '
-        Me.GroupBox4.Controls.Add(Me.NumericUpDown7)
-        Me.GroupBox4.Controls.Add(Me.NumericUpDown8)
+        Me.GroupBox4.Controls.Add(Me.nupHeatBP)
+        Me.GroupBox4.Controls.Add(Me.nupCoolBP)
         Me.GroupBox4.Controls.Add(Me.Label10)
         Me.GroupBox4.Controls.Add(Me.Label11)
-        Me.GroupBox4.Location = New System.Drawing.Point(365, 12)
+        Me.GroupBox4.Location = New System.Drawing.Point(309, 12)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(181, 104)
+        Me.GroupBox4.Size = New System.Drawing.Size(165, 104)
         Me.GroupBox4.TabIndex = 4
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Bande proporzionali"
         '
-        'NumericUpDown7
+        'nupHeatBP
         '
-        Me.NumericUpDown7.DecimalPlaces = 1
-        Me.NumericUpDown7.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
-        Me.NumericUpDown7.Location = New System.Drawing.Point(105, 18)
-        Me.NumericUpDown7.Maximum = New Decimal(New Integer() {999, 0, 0, 65536})
-        Me.NumericUpDown7.Name = "NumericUpDown7"
-        Me.NumericUpDown7.Size = New System.Drawing.Size(47, 22)
-        Me.NumericUpDown7.TabIndex = 1
-        Me.NumericUpDown7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.NumericUpDown7.Value = New Decimal(New Integer() {999, 0, 0, 65536})
+        Me.nupHeatBP.DecimalPlaces = 1
+        Me.nupHeatBP.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
+        Me.nupHeatBP.Location = New System.Drawing.Point(107, 18)
+        Me.nupHeatBP.Maximum = New Decimal(New Integer() {10, 0, 0, 0})
+        Me.nupHeatBP.Name = "nupHeatBP"
+        Me.nupHeatBP.Size = New System.Drawing.Size(47, 22)
+        Me.nupHeatBP.TabIndex = 1
+        Me.nupHeatBP.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.nupHeatBP.Value = New Decimal(New Integer() {10, 0, 0, 0})
         '
-        'NumericUpDown8
+        'nupCoolBP
         '
-        Me.NumericUpDown8.DecimalPlaces = 1
-        Me.NumericUpDown8.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
-        Me.NumericUpDown8.Location = New System.Drawing.Point(107, 74)
-        Me.NumericUpDown8.Maximum = New Decimal(New Integer() {999, 0, 0, 65536})
-        Me.NumericUpDown8.Name = "NumericUpDown8"
-        Me.NumericUpDown8.Size = New System.Drawing.Size(47, 22)
-        Me.NumericUpDown8.TabIndex = 1
-        Me.NumericUpDown8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.NumericUpDown8.Value = New Decimal(New Integer() {999, 0, 0, 65536})
+        Me.nupCoolBP.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.nupCoolBP.DecimalPlaces = 1
+        Me.nupCoolBP.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
+        Me.nupCoolBP.Location = New System.Drawing.Point(107, 74)
+        Me.nupCoolBP.Maximum = New Decimal(New Integer() {10, 0, 0, 0})
+        Me.nupCoolBP.Name = "nupCoolBP"
+        Me.nupCoolBP.Size = New System.Drawing.Size(47, 22)
+        Me.nupCoolBP.TabIndex = 1
+        Me.nupCoolBP.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.nupCoolBP.Value = New Decimal(New Integer() {10, 0, 0, 0})
         '
         'Label10
         '
@@ -486,6 +511,7 @@ Partial Class dlgTemperatureCalendar
         '
         'Label11
         '
+        Me.Label11.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label11.AutoSize = True
         Me.Label11.Location = New System.Drawing.Point(6, 76)
         Me.Label11.Name = "Label11"
@@ -495,54 +521,54 @@ Partial Class dlgTemperatureCalendar
         '
         'GroupBox5
         '
-        Me.GroupBox5.Controls.Add(Me.NumericUpDown9)
-        Me.GroupBox5.Controls.Add(Me.NumericUpDown10)
-        Me.GroupBox5.Controls.Add(Me.NumericUpDown11)
+        Me.GroupBox5.Controls.Add(Me.nupFrostProt)
+        Me.GroupBox5.Controls.Add(Me.nupHeatEco)
+        Me.GroupBox5.Controls.Add(Me.nupCoolEco)
         Me.GroupBox5.Controls.Add(Me.Label12)
         Me.GroupBox5.Controls.Add(Me.Label13)
         Me.GroupBox5.Controls.Add(Me.Label14)
-        Me.GroupBox5.Location = New System.Drawing.Point(565, 12)
+        Me.GroupBox5.Location = New System.Drawing.Point(579, 12)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(186, 104)
+        Me.GroupBox5.Size = New System.Drawing.Size(172, 104)
         Me.GroupBox5.TabIndex = 4
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Altri setpoint"
         '
-        'NumericUpDown9
+        'nupFrostProt
         '
-        Me.NumericUpDown9.DecimalPlaces = 1
-        Me.NumericUpDown9.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
-        Me.NumericUpDown9.Location = New System.Drawing.Point(115, 18)
-        Me.NumericUpDown9.Maximum = New Decimal(New Integer() {999, 0, 0, 65536})
-        Me.NumericUpDown9.Name = "NumericUpDown9"
-        Me.NumericUpDown9.Size = New System.Drawing.Size(47, 22)
-        Me.NumericUpDown9.TabIndex = 1
-        Me.NumericUpDown9.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.NumericUpDown9.Value = New Decimal(New Integer() {999, 0, 0, 65536})
+        Me.nupFrostProt.DecimalPlaces = 1
+        Me.nupFrostProt.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
+        Me.nupFrostProt.Location = New System.Drawing.Point(115, 18)
+        Me.nupFrostProt.Maximum = New Decimal(New Integer() {120, 0, 0, 65536})
+        Me.nupFrostProt.Name = "nupFrostProt"
+        Me.nupFrostProt.Size = New System.Drawing.Size(47, 22)
+        Me.nupFrostProt.TabIndex = 1
+        Me.nupFrostProt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.nupFrostProt.Value = New Decimal(New Integer() {120, 0, 0, 65536})
         '
-        'NumericUpDown10
+        'nupHeatEco
         '
-        Me.NumericUpDown10.DecimalPlaces = 1
-        Me.NumericUpDown10.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
-        Me.NumericUpDown10.Location = New System.Drawing.Point(115, 46)
-        Me.NumericUpDown10.Maximum = New Decimal(New Integer() {999, 0, 0, 65536})
-        Me.NumericUpDown10.Name = "NumericUpDown10"
-        Me.NumericUpDown10.Size = New System.Drawing.Size(47, 22)
-        Me.NumericUpDown10.TabIndex = 1
-        Me.NumericUpDown10.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.NumericUpDown10.Value = New Decimal(New Integer() {999, 0, 0, 65536})
+        Me.nupHeatEco.DecimalPlaces = 1
+        Me.nupHeatEco.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
+        Me.nupHeatEco.Location = New System.Drawing.Point(115, 46)
+        Me.nupHeatEco.Maximum = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.nupHeatEco.Minimum = New Decimal(New Integer() {10, 0, 0, -2147483648})
+        Me.nupHeatEco.Name = "nupHeatEco"
+        Me.nupHeatEco.Size = New System.Drawing.Size(47, 22)
+        Me.nupHeatEco.TabIndex = 1
+        Me.nupHeatEco.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'NumericUpDown11
+        'nupCoolEco
         '
-        Me.NumericUpDown11.DecimalPlaces = 1
-        Me.NumericUpDown11.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
-        Me.NumericUpDown11.Location = New System.Drawing.Point(115, 74)
-        Me.NumericUpDown11.Maximum = New Decimal(New Integer() {999, 0, 0, 65536})
-        Me.NumericUpDown11.Name = "NumericUpDown11"
-        Me.NumericUpDown11.Size = New System.Drawing.Size(47, 22)
-        Me.NumericUpDown11.TabIndex = 1
-        Me.NumericUpDown11.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.NumericUpDown11.Value = New Decimal(New Integer() {999, 0, 0, 65536})
+        Me.nupCoolEco.DecimalPlaces = 1
+        Me.nupCoolEco.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
+        Me.nupCoolEco.Location = New System.Drawing.Point(115, 74)
+        Me.nupCoolEco.Maximum = New Decimal(New Integer() {10, 0, 0, 0})
+        Me.nupCoolEco.Name = "nupCoolEco"
+        Me.nupCoolEco.Size = New System.Drawing.Size(47, 22)
+        Me.nupCoolEco.TabIndex = 1
+        Me.nupCoolEco.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.nupCoolEco.Value = New Decimal(New Integer() {10, 0, 0, 0})
         '
         'Label12
         '
@@ -571,20 +597,120 @@ Partial Class dlgTemperatureCalendar
         Me.Label14.TabIndex = 0
         Me.Label14.Text = "Eco raffrescamento"
         '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(12, 248)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(19, 13)
+        Me.Label15.TabIndex = 2
+        Me.Label15.Text = "T3"
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(12, 263)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(19, 13)
+        Me.Label16.TabIndex = 2
+        Me.Label16.Text = "T2"
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(13, 279)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(17, 13)
+        Me.Label17.TabIndex = 2
+        Me.Label17.Text = "T1"
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Location = New System.Drawing.Point(2, 149)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(26, 13)
+        Me.Label18.TabIndex = 5
+        Me.Label18.Text = "Risc."
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Location = New System.Drawing.Point(2, 232)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(26, 13)
+        Me.Label19.TabIndex = 5
+        Me.Label19.Text = "Raff."
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Black
+        Me.PictureBox1.Location = New System.Drawing.Point(34, 236)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(722, 1)
+        Me.PictureBox1.TabIndex = 6
+        Me.PictureBox1.TabStop = False
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(34, 313)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(90, 35)
+        Me.Button1.TabIndex = 7
+        Me.Button1.Text = "Copia su giorno precedente"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(130, 313)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(90, 35)
+        Me.Button2.TabIndex = 7
+        Me.Button2.Text = "Copia su giorno successivo"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.ComboBox1)
+        Me.GroupBox1.Location = New System.Drawing.Point(480, 12)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(93, 104)
+        Me.GroupBox1.TabIndex = 8
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Manuale"
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"T3", "T2", "T1", "Antigelo"})
+        Me.ComboBox1.Location = New System.Drawing.Point(6, 40)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(81, 21)
+        Me.ComboBox1.TabIndex = 0
+        '
         'dlgTemperatureCalendar
         '
         Me.AcceptButton = Me.OK_Button
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.Cancel_Button
-        Me.ClientSize = New System.Drawing.Size(784, 346)
+        Me.ClientSize = New System.Drawing.Size(784, 361)
+        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.Label19)
+        Me.Controls.Add(Me.Label18)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
-        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.gbDays)
+        Me.Controls.Add(Me.Label17)
         Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Label16)
         Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Label15)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Font = New System.Drawing.Font("Segoe UI Semilight", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -596,27 +722,29 @@ Partial Class dlgTemperatureCalendar
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Calendario"
         Me.TableLayoutPanel1.ResumeLayout(False)
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
+        Me.gbDays.ResumeLayout(False)
+        Me.gbDays.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
-        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NumericUpDown3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.nupHeatT1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.nupHeatT2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.nupHeatT3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
-        CType(Me.NumericUpDown4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NumericUpDown5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NumericUpDown6, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.nupCoolT3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.nupCoolT2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.nupCoolT1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
-        CType(Me.NumericUpDown7, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NumericUpDown8, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.nupHeatBP, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.nupCoolBP, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
-        CType(Me.NumericUpDown9, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NumericUpDown10, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NumericUpDown11, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.nupFrostProt, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.nupHeatEco, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.nupCoolEco, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -627,10 +755,10 @@ Partial Class dlgTemperatureCalendar
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents rbDay6_7 As RadioButton
-    Friend WithEvents rbDay1_5 As RadioButton
-    Friend WithEvents rbDay7 As RadioButton
+    Friend WithEvents gbDays As GroupBox
+    Friend WithEvents rbFestivo As RadioButton
+    Friend WithEvents rbFeriale As RadioButton
+    Friend WithEvents rbDay0 As RadioButton
     Friend WithEvents rbDay6 As RadioButton
     Friend WithEvents rbDay5 As RadioButton
     Friend WithEvents rbDay4 As RadioButton
@@ -639,29 +767,39 @@ Partial Class dlgTemperatureCalendar
     Friend WithEvents rbDay1 As RadioButton
     Friend WithEvents chkDayAll As CheckBox
     Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents NumericUpDown3 As NumericUpDown
-    Friend WithEvents NumericUpDown2 As NumericUpDown
-    Friend WithEvents NumericUpDown1 As NumericUpDown
+    Friend WithEvents nupHeatT1 As NumericUpDown
+    Friend WithEvents nupHeatT2 As NumericUpDown
+    Friend WithEvents nupHeatT3 As NumericUpDown
     Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents GroupBox3 As GroupBox
-    Friend WithEvents NumericUpDown4 As NumericUpDown
-    Friend WithEvents NumericUpDown5 As NumericUpDown
-    Friend WithEvents NumericUpDown6 As NumericUpDown
+    Friend WithEvents nupCoolT3 As NumericUpDown
+    Friend WithEvents nupCoolT2 As NumericUpDown
+    Friend WithEvents nupCoolT1 As NumericUpDown
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents Label9 As Label
     Friend WithEvents GroupBox4 As GroupBox
-    Friend WithEvents NumericUpDown7 As NumericUpDown
-    Friend WithEvents NumericUpDown8 As NumericUpDown
+    Friend WithEvents nupHeatBP As NumericUpDown
+    Friend WithEvents nupCoolBP As NumericUpDown
     Friend WithEvents Label10 As Label
     Friend WithEvents Label11 As Label
     Friend WithEvents GroupBox5 As GroupBox
-    Friend WithEvents NumericUpDown9 As NumericUpDown
-    Friend WithEvents NumericUpDown10 As NumericUpDown
-    Friend WithEvents NumericUpDown11 As NumericUpDown
+    Friend WithEvents nupFrostProt As NumericUpDown
+    Friend WithEvents nupHeatEco As NumericUpDown
+    Friend WithEvents nupCoolEco As NumericUpDown
     Friend WithEvents Label12 As Label
     Friend WithEvents Label13 As Label
     Friend WithEvents Label14 As Label
+    Friend WithEvents Label15 As Label
+    Friend WithEvents Label16 As Label
+    Friend WithEvents Label17 As Label
+    Friend WithEvents Label18 As Label
+    Friend WithEvents Label19 As Label
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Button2 As Button
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents ComboBox1 As ComboBox
 End Class

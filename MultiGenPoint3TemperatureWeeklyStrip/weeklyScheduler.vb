@@ -12,21 +12,24 @@
     Public Property ecoHeatReduction As Double
     Public Property ecoCoolIncrease As Double
     Public Property workingSetpoint As Double
-    Public activeTemp(,) As Integer
+    Public activeHeatTemp(,) As Integer
+    Public activeCoolTemp(,) As Integer
     Public Sub New()
-        ReDim activeTemp(6, 47)
+        ReDim activeHeatTemp(6, 47)
+        ReDim activeCoolTemp(6, 47)
         For i = 0 To 6
             For j = 0 To 47
-                activeTemp(i, j) = (Math.Round(Rnd() * 3))
+                activeHeatTemp(i, j) = (Math.Round(Rnd() * 3))
+                activeCoolTemp(i, j) = (Math.Round(Rnd() * 3))
             Next
         Next
 
-        setpointHeatT1 = 15.0
+        setpointHeatT1 = 21.0
         setpointHeatT2 = 19.0
-        setpointHeatT3 = 21.0
-        setpointCoolT1 = 30.0
+        setpointHeatT3 = 15.0
+        setpointCoolT1 = 24.0
         setpointCoolT2 = 26.0
-        setpointCoolT3 = 24.0
+        setpointCoolT3 = 30.0
 
         heatPB = 2.0
         coolPB = 2.0

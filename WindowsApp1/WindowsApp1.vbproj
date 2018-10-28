@@ -48,8 +48,8 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MultiGenPointDailyStrip">
-      <HintPath>..\MultiGenPointDailyStrip\bin\Release\MultiGenPointDailyStrip.dll</HintPath>
+    <Reference Include="MultiGenPoint3TemperatureWeeklyStrip">
+      <HintPath>..\MultiGenPoint3TemperatureWeeklyStrip\bin\Debug\MultiGenPoint3TemperatureWeeklyStrip.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

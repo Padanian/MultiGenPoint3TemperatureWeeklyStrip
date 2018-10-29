@@ -151,7 +151,7 @@ Public Class MultiGenPoint3TemperatureWeeklyStrip
             .Start()
         End With
 
-        Me.temperature = 20.4
+        Me.temperature = 100 * Rnd()
         Me.isHeating = False
         Me.isCooling = False
         Me.isManual = False
@@ -174,6 +174,7 @@ Public Class MultiGenPoint3TemperatureWeeklyStrip
                 DateTime.Now.Month.ToString.PadLeft(2, "0") & "/" &
                 Strings.Right(DateTime.Now.Year.ToString, 2).PadLeft(2, "0")
         End If
+
 
     End Sub
     Private Sub clock_tick() Handles clock.Elapsed
@@ -346,12 +347,18 @@ Public Class MultiGenPoint3TemperatureWeeklyStrip
             myWeeklySchedule = dlgTemperatureCalendar.dlgWeeklyScheduler
         End If
     End Sub
-    Private Sub MultiGenPoint3TemperatureWeeklyStrip_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
-
     Public Sub UpdatemyWeeklySchedule(ByVal a As weeklyScheduler)
         myWeeklySchedule = a
     End Sub
+    Private Sub Me_Paint(sender As Object, e As PaintEventArgs) Handles Me.Paint
 
+        Dim myGraphics As Graphics
+        Dim myRectangle As Rectangle
+        Dim myPen As New Pen(Color.DarkGray, 2)
+
+        myGraphics = Graphics.FromHwnd(Me.Handle)
+        myRectangle = New Rectangle(0, 0, 294, 130)
+        myGraphics.DrawRectangle(myPen, myRectangle)
+
+    End Sub
 End Class

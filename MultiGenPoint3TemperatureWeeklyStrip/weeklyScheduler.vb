@@ -20,8 +20,8 @@ Public Class weeklyScheduler
         ReDim activeCoolTemp(6, 47)
         For i = 0 To 6
             For j = 0 To 47
-                activeHeatTemp(i, j) = (Math.Round(Rnd() * 3))
-                activeCoolTemp(i, j) = (Math.Round(Rnd() * 3))
+                activeHeatTemp(i, j) = 0
+                activeCoolTemp(i, j) = 0
             Next
         Next
 

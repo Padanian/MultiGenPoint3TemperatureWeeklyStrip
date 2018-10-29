@@ -8,6 +8,22 @@ Public Class dlgTemperatureCalendar
     Public dlgWeeklyScheduler As New weeklyScheduler
     Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK_Button.Click
 
+        dlgWeeklyScheduler.activeHeatTemp = activeHeatTempLocal
+        dlgWeeklyScheduler.activeCoolTemp = activeCoolTempLocal
+
+        dlgWeeklyScheduler.coolPB = nupCoolBP.Value
+        dlgWeeklyScheduler.heatPB = nupHeatBP.Value
+        dlgWeeklyScheduler.setpointCoolT1 = nupCoolT1.Value
+        dlgWeeklyScheduler.setpointCoolT2 = nupCoolT2.Value
+        dlgWeeklyScheduler.setpointCoolT3 = nupCoolT3.Value
+        dlgWeeklyScheduler.setpointHeatT1 = nupHeatT1.Value
+        dlgWeeklyScheduler.setpointHeatT2 = nupHeatT2.Value
+        dlgWeeklyScheduler.setpointHeatT3 = nupHeatT3.Value
+        dlgWeeklyScheduler.freezeProtSetpoint = nupFrostProt.Value
+        dlgWeeklyScheduler.ecoCoolIncrease = nupCoolEco.Value
+        dlgWeeklyScheduler.ecoHeatReduction = nupHeatEco.Value
+
+
         MultiGenPoint3TemperatureWeeklyStrip.UpdateRequest = True
 
         Me.DialogResult = System.Windows.Forms.DialogResult.OK
@@ -63,6 +79,18 @@ Public Class dlgTemperatureCalendar
         activeHeatTempLocal = dlgWeeklyScheduler.activeHeatTemp
         ReDim activeCoolTempLocal(6, 47)
         activeCoolTempLocal = dlgWeeklyScheduler.activeCoolTemp
+
+        nupCoolBP.Value = dlgWeeklyScheduler.coolPB
+        nupHeatBP.Value = dlgWeeklyScheduler.heatPB
+        nupCoolT1.Value = dlgWeeklyScheduler.setpointCoolT1
+        nupCoolT2.Value = dlgWeeklyScheduler.setpointCoolT2
+        nupCoolT3.Value = dlgWeeklyScheduler.setpointCoolT3
+        nupHeatT1.Value = dlgWeeklyScheduler.setpointHeatT1
+        nupHeatT2.Value = dlgWeeklyScheduler.setpointHeatT2
+        nupHeatT3.Value = dlgWeeklyScheduler.setpointHeatT3
+        nupFrostProt.Value = dlgWeeklyScheduler.freezeProtSetpoint
+        nupCoolEco.Value = dlgWeeklyScheduler.ecoCoolIncrease
+        nupHeatEco.Value = dlgWeeklyScheduler.ecoHeatReduction
 
         For i = 1 To 23
             Dim lbl As New Label
@@ -152,18 +180,6 @@ Public Class dlgTemperatureCalendar
                 DirectCast(Me.Controls.Find("cckTime" & j.ToString.PadLeft(2, "0") & "02", True)(0), PictureBox).BackColor = Color.Black
             End If
         Next
-
-        'nupCoolBP.Value = MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.coolPB
-        'nupHeatBP.Value = MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.heatPB
-        'nupCoolT1.Value = MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.setpointCoolT1
-        'nupCoolT2.Value = MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.setpointCoolT2
-        'nupCoolT3.Value = MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.setpointCoolT3
-        'nupHeatT1.Value = MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.setpointHeatT1
-        'nupHeatT2.Value = MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.setpointHeatT2
-        'nupHeatT3.Value = MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.setpointHeatT3
-        'nupFrostProt.Value = MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.freezeProtSetpoint
-        'nupCoolEco.Value = MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.ecoCoolIncrease
-        'nupHeatEco.Value = MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.ecoHeatReduction
 
 
     End Sub
@@ -358,6 +374,12 @@ Public Class dlgTemperatureCalendar
             Dim bftemp As weeklyScheduler = bf.Deserialize(fStream) ' read from file
             dlgWeeklyScheduler = bftemp
 
+            ReDim activeHeatTempLocal(6, 47)
+            activeHeatTempLocal = dlgWeeklyScheduler.activeHeatTemp
+            ReDim activeCoolTempLocal(6, 47)
+            activeCoolTempLocal = dlgWeeklyScheduler.activeCoolTemp
+
+
             fStream.Close()
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -414,7 +436,6 @@ Public Class dlgTemperatureCalendar
         MultiGenPoint3TemperatureWeeklyStrip.UpdateRequest = True
 
     End Sub
-
     Private Sub btnCopyForth_Click(sender As Object, e As EventArgs) Handles btnCopyForth.Click
 
         Dim today As Integer
@@ -439,7 +460,6 @@ Public Class dlgTemperatureCalendar
         DirectCast(gbDays.Controls.Find("rbDay" & tomorrow.ToString, True)(0), RadioButton).Select()
 
     End Sub
-
     Private Sub btnCopyBack_Click(sender As Object, e As EventArgs) Handles btnCopyBack.Click
         Dim today As Integer
         Dim yesterday As Integer

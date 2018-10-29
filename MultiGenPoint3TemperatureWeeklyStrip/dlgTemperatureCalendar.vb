@@ -1,29 +1,22 @@
-﻿Imports System.Windows.Forms
+﻿Imports System.IO
+Imports System.Windows.Forms
 
 Public Class dlgTemperatureCalendar
-    Dim activeHeatTempLocal As Integer(,)
-    Dim activeCoolTempLocal As Integer(,)
+    Dim activeHeatTempLocal(,) As Integer
+    Dim activeCoolTempLocal(,) As Integer
+
+    Public dlgWeeklyScheduler As New weeklyScheduler
     Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK_Button.Click
 
-        Array.Copy(activeHeatTempLocal, MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.activeHeatTemp, activeHeatTempLocal.Length)
-        Array.Copy(activeCoolTempLocal, MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.activeCoolTemp, activeCoolTempLocal.Length)
-
-        MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.coolPB = nupCoolBP.Value
-        MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.heatPB = nupHeatBP.Value
-        MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.setpointCoolT1 = nupCoolT1.Value
-        MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.setpointCoolT2 = nupCoolT2.Value
-        MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.setpointCoolT3 = nupCoolT3.Value
-        MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.setpointHeatT1 = nupHeatT1.Value
-        MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.setpointHeatT2 = nupHeatT2.Value
-        MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.setpointHeatT3 = nupHeatT3.Value
-        MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.freezeProtSetpoint = nupFrostProt.Value
-        MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.ecoCoolIncrease = nupCoolEco.Value
-        MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.ecoHeatReduction = nupHeatEco.Value
+        MultiGenPoint3TemperatureWeeklyStrip.UpdateRequest = True
 
         Me.DialogResult = System.Windows.Forms.DialogResult.OK
         Me.Close()
     End Sub
     Private Sub Cancel_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cancel_Button.Click
+
+        MultiGenPoint3TemperatureWeeklyStrip.UpdateRequest = True
+
         Me.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.Close()
     End Sub
@@ -43,6 +36,17 @@ Public Class dlgTemperatureCalendar
         End If
     End Sub
     Private Sub dlgTemperatureCalendar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        If Cancel_Button.Enabled = False Then
+            Cancel_Button.Enabled = True
+        End If
+
+
+#If DEBUG Then
+        btnSaveWeekly.Visible = True
+#End If
+        cbManual.Text = cbManual.Items.Item(3)
+
         For Each lbl In Me.Controls
             If TypeOf (lbl) Is Label And lbl.name.contains("lblTime") Then
                 lbl.dispose
@@ -56,10 +60,9 @@ Public Class dlgTemperatureCalendar
         Application.DoEvents()
 
         ReDim activeHeatTempLocal(6, 47)
+        activeHeatTempLocal = dlgWeeklyScheduler.activeHeatTemp
         ReDim activeCoolTempLocal(6, 47)
-
-        Array.Copy(MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.activeHeatTemp, activeHeatTempLocal, activeHeatTempLocal.Length)
-        Array.Copy(MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.activeCoolTemp, activeCoolTempLocal, activeCoolTempLocal.Length)
+        activeCoolTempLocal = dlgWeeklyScheduler.activeCoolTemp
 
         For i = 1 To 23
             Dim lbl As New Label
@@ -150,17 +153,18 @@ Public Class dlgTemperatureCalendar
             End If
         Next
 
-        nupCoolBP.Value = MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.coolPB
-        nupHeatBP.Value = MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.heatPB
-        nupCoolT1.Value = MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.setpointCoolT1
-        nupCoolT2.Value = MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.setpointCoolT2
-        nupCoolT3.Value = MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.setpointCoolT3
-        nupHeatT1.Value = MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.setpointHeatT1
-        nupHeatT2.Value = MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.setpointHeatT2
-        nupHeatT3.Value = MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.setpointHeatT3
-        nupFrostProt.Value = MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.freezeProtSetpoint
-        nupCoolEco.Value = MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.ecoCoolIncrease
-        nupHeatEco.Value = MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.ecoHeatReduction
+        'nupCoolBP.Value = MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.coolPB
+        'nupHeatBP.Value = MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.heatPB
+        'nupCoolT1.Value = MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.setpointCoolT1
+        'nupCoolT2.Value = MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.setpointCoolT2
+        'nupCoolT3.Value = MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.setpointCoolT3
+        'nupHeatT1.Value = MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.setpointHeatT1
+        'nupHeatT2.Value = MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.setpointHeatT2
+        'nupHeatT3.Value = MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.setpointHeatT3
+        'nupFrostProt.Value = MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.freezeProtSetpoint
+        'nupCoolEco.Value = MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.ecoCoolIncrease
+        'nupHeatEco.Value = MultiGenPoint3TemperatureWeeklyStrip.myWeeklySchedule.ecoHeatReduction
+
 
     End Sub
     Private Sub chkTime_Touched(sender As Object, e As EventArgs)
@@ -174,13 +178,16 @@ Public Class dlgTemperatureCalendar
         If sender.backcolor = Color.LightGray Then
             sender.backcolor = Color.Black
             If Strings.Right(sender.name, 2) = "02" Then
+                DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "02", True)(0), PictureBox).BackColor = Color.Black
                 DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "01", True)(0), PictureBox).BackColor = Color.Black
                 DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "00", True)(0), PictureBox).BackColor = Color.Black
                 activeHeatTempLocal(day, CInt(Strings.Mid(sender.name, 8, 2))) = 3
             ElseIf Strings.Right(sender.name, 2) = "01" Then
+                DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "01", True)(0), PictureBox).BackColor = Color.Black
                 DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "00", True)(0), PictureBox).BackColor = Color.Black
                 activeHeatTempLocal(day, CInt(Strings.Mid(sender.name, 8, 2))) = 2
             ElseIf Strings.Right(sender.name, 2) = "00" Then
+                DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "00", True)(0), PictureBox).BackColor = Color.Black
                 activeHeatTempLocal(day, CInt(Strings.Mid(sender.name, 8, 2))) = 1
 
             End If
@@ -188,15 +195,21 @@ Public Class dlgTemperatureCalendar
             sender.backcolor = Color.LightGray
             If Strings.Right(sender.name, 2) = "01" Then
                 DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "02", True)(0), PictureBox).BackColor = Color.LightGray
+                DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "01", True)(0), PictureBox).BackColor = Color.LightGray
                 activeHeatTempLocal(day, CInt(Strings.Mid(sender.name, 8, 2))) = 1
             ElseIf Strings.Right(sender.name, 2) = "00" Then
                 DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "02", True)(0), PictureBox).BackColor = Color.LightGray
                 DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "01", True)(0), PictureBox).BackColor = Color.LightGray
+                DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "00", True)(0), PictureBox).BackColor = Color.LightGray
                 activeHeatTempLocal(day, CInt(Strings.Mid(sender.name, 8, 2))) = 0
             ElseIf Strings.Right(sender.name, 2) = "02" Then
+                DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "00", True)(0), PictureBox).BackColor = Color.LightGray
                 activeHeatTempLocal(day, CInt(Strings.Mid(sender.name, 8, 2))) = 2
             End If
         End If
+
+        MultiGenPoint3TemperatureWeeklyStrip.UpdateRequest = True
+
     End Sub
     Private Sub cckTime_Touched(sender As Object, e As EventArgs)
         Dim day As Integer
@@ -210,13 +223,16 @@ Public Class dlgTemperatureCalendar
         If sender.backcolor = Color.LightGray Then
             sender.backcolor = Color.Black
             If Strings.Right(sender.name, 2) = "02" Then
+                DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "02", True)(0), PictureBox).BackColor = Color.Black
                 DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "01", True)(0), PictureBox).BackColor = Color.Black
                 DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "00", True)(0), PictureBox).BackColor = Color.Black
                 activeCoolTempLocal(day, CInt(Strings.Mid(sender.name, 8, 2))) = 3
             ElseIf Strings.Right(sender.name, 2) = "01" Then
+                DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "01", True)(0), PictureBox).BackColor = Color.Black
                 DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "00", True)(0), PictureBox).BackColor = Color.Black
                 activeCoolTempLocal(day, CInt(Strings.Mid(sender.name, 8, 2))) = 2
             ElseIf Strings.Right(sender.name, 2) = "00" Then
+                DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "00", True)(0), PictureBox).BackColor = Color.Black
                 activeCoolTempLocal(day, CInt(Strings.Mid(sender.name, 8, 2))) = 1
 
             End If
@@ -224,12 +240,15 @@ Public Class dlgTemperatureCalendar
             sender.backcolor = Color.LightGray
             If Strings.Right(sender.name, 2) = "01" Then
                 DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "02", True)(0), PictureBox).BackColor = Color.LightGray
+                DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "01", True)(0), PictureBox).BackColor = Color.LightGray
                 activeCoolTempLocal(day, CInt(Strings.Mid(sender.name, 8, 2))) = 1
             ElseIf Strings.Right(sender.name, 2) = "00" Then
                 DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "02", True)(0), PictureBox).BackColor = Color.LightGray
                 DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "01", True)(0), PictureBox).BackColor = Color.LightGray
+                DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "00", True)(0), PictureBox).BackColor = Color.LightGray
                 activeCoolTempLocal(day, CInt(Strings.Mid(sender.name, 8, 2))) = 0
             ElseIf Strings.Right(sender.name, 2) = "02" Then
+                DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "00", True)(0), PictureBox).BackColor = Color.LightGray
                 activeCoolTempLocal(day, CInt(Strings.Mid(sender.name, 8, 2))) = 2
             End If
         End If
@@ -280,5 +299,168 @@ Public Class dlgTemperatureCalendar
         Next
 
     End Sub
+    Private Sub btnSaveWeekly_Click(sender As Object, e As EventArgs) Handles btnSaveWeekly.Click
+        Try
+            Dim temp As New weeklyScheduler
+            Array.Copy(activeHeatTempLocal, temp.activeHeatTemp, activeHeatTempLocal.Length)
+            Array.Copy(activeCoolTempLocal, temp.activeCoolTemp, activeCoolTempLocal.Length)
 
+            temp.coolPB = nupCoolBP.Value
+            temp.heatPB = nupHeatBP.Value
+            temp.setpointCoolT1 = nupCoolT1.Value
+            temp.setpointCoolT2 = nupCoolT2.Value
+            temp.setpointCoolT3 = nupCoolT3.Value
+            temp.setpointHeatT1 = nupHeatT1.Value
+            temp.setpointHeatT2 = nupHeatT2.Value
+            temp.setpointHeatT3 = nupHeatT3.Value
+            temp.freezeProtSetpoint = nupFrostProt.Value
+            temp.ecoCoolIncrease = nupCoolEco.Value
+            temp.ecoHeatReduction = nupHeatEco.Value
+
+
+            Dim bf As New System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+
+            Dim sfd As New SaveFileDialog
+            Dim filename As String
+            sfd.Filter = "mgp files (*.mgp)|*.mgp|Tutti i files (*.*)|*.*"
+            If sfd.ShowDialog = DialogResult.OK Then
+                filename = sfd.FileName
+            Else
+                Exit Sub
+            End If
+
+            Dim fStream As New FileStream(filename, FileMode.Create)
+
+            bf.Serialize(fStream, temp) ' write to file
+
+            fStream.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Exit Sub
+        End Try
+    End Sub
+    Private Sub btnLoadWeekly_Click(sender As Object, e As EventArgs) Handles btnLoadWeekly.Click
+
+        Cancel_Button.Enabled = False
+
+        Try
+            Dim bf As New System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            Dim ofd As New OpenFileDialog
+            Dim filename As String
+            ofd.Filter = "mgp files (*.mgp)|*.mgp|Tutti i files (*.*)|*.*"
+            If ofd.ShowDialog = DialogResult.OK Then
+                filename = ofd.FileName
+            Else
+                Exit Sub
+            End If
+            Dim fStream As New FileStream(filename, FileMode.Open)
+
+            Dim bftemp As weeklyScheduler = bf.Deserialize(fStream) ' read from file
+            dlgWeeklyScheduler = bftemp
+
+            fStream.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Exit Sub
+        End Try
+
+        For j = 0 To 47
+            DirectCast(Me.Controls.Find("chkTime" & j.ToString.PadLeft(2, "0") & "00", True)(0), PictureBox).BackColor = Color.LightGray
+            DirectCast(Me.Controls.Find("cckTime" & j.ToString.PadLeft(2, "0") & "00", True)(0), PictureBox).BackColor = Color.LightGray
+            DirectCast(Me.Controls.Find("chkTime" & j.ToString.PadLeft(2, "0") & "01", True)(0), PictureBox).BackColor = Color.LightGray
+            DirectCast(Me.Controls.Find("cckTime" & j.ToString.PadLeft(2, "0") & "01", True)(0), PictureBox).BackColor = Color.LightGray
+            DirectCast(Me.Controls.Find("chkTime" & j.ToString.PadLeft(2, "0") & "02", True)(0), PictureBox).BackColor = Color.LightGray
+            DirectCast(Me.Controls.Find("cckTime" & j.ToString.PadLeft(2, "0") & "02", True)(0), PictureBox).BackColor = Color.LightGray
+        Next
+
+
+        For j = 0 To 47
+            Dim levelHeat As Integer = dlgWeeklyScheduler.activeHeatTemp(DateTime.Now.DayOfWeek, j)
+            Dim levelCool As Integer = dlgWeeklyScheduler.activeCoolTemp(DateTime.Now.DayOfWeek, j)
+            If levelHeat = 1 Then
+                DirectCast(Me.Controls.Find("chkTime" & j.ToString.PadLeft(2, "0") & "00", True)(0), PictureBox).BackColor = Color.Black
+            ElseIf levelHeat = 2 Then
+                DirectCast(Me.Controls.Find("chkTime" & j.ToString.PadLeft(2, "0") & "00", True)(0), PictureBox).BackColor = Color.Black
+                DirectCast(Me.Controls.Find("chkTime" & j.ToString.PadLeft(2, "0") & "01", True)(0), PictureBox).BackColor = Color.Black
+            ElseIf levelHeat = 3 Then
+                DirectCast(Me.Controls.Find("chkTime" & j.ToString.PadLeft(2, "0") & "00", True)(0), PictureBox).BackColor = Color.Black
+                DirectCast(Me.Controls.Find("chkTime" & j.ToString.PadLeft(2, "0") & "01", True)(0), PictureBox).BackColor = Color.Black
+                DirectCast(Me.Controls.Find("chkTime" & j.ToString.PadLeft(2, "0") & "02", True)(0), PictureBox).BackColor = Color.Black
+            End If
+            If levelCool = 1 Then
+                DirectCast(Me.Controls.Find("cckTime" & j.ToString.PadLeft(2, "0") & "00", True)(0), PictureBox).BackColor = Color.Black
+            ElseIf levelCool = 2 Then
+                DirectCast(Me.Controls.Find("cckTime" & j.ToString.PadLeft(2, "0") & "00", True)(0), PictureBox).BackColor = Color.Black
+                DirectCast(Me.Controls.Find("cckTime" & j.ToString.PadLeft(2, "0") & "01", True)(0), PictureBox).BackColor = Color.Black
+            ElseIf levelCool = 3 Then
+                DirectCast(Me.Controls.Find("cckTime" & j.ToString.PadLeft(2, "0") & "00", True)(0), PictureBox).BackColor = Color.Black
+                DirectCast(Me.Controls.Find("cckTime" & j.ToString.PadLeft(2, "0") & "01", True)(0), PictureBox).BackColor = Color.Black
+                DirectCast(Me.Controls.Find("cckTime" & j.ToString.PadLeft(2, "0") & "02", True)(0), PictureBox).BackColor = Color.Black
+            End If
+        Next
+
+        nupCoolBP.Value = dlgWeeklyScheduler.coolPB
+        nupHeatBP.Value = dlgWeeklyScheduler.heatPB
+        nupCoolT1.Value = dlgWeeklyScheduler.setpointCoolT1
+        nupCoolT2.Value = dlgWeeklyScheduler.setpointCoolT2
+        nupCoolT3.Value = dlgWeeklyScheduler.setpointCoolT3
+        nupHeatT1.Value = dlgWeeklyScheduler.setpointHeatT1
+        nupHeatT2.Value = dlgWeeklyScheduler.setpointHeatT2
+        nupHeatT3.Value = dlgWeeklyScheduler.setpointHeatT3
+        nupFrostProt.Value = dlgWeeklyScheduler.freezeProtSetpoint
+        nupCoolEco.Value = dlgWeeklyScheduler.ecoCoolIncrease
+        nupHeatEco.Value = dlgWeeklyScheduler.ecoHeatReduction
+
+        MultiGenPoint3TemperatureWeeklyStrip.UpdateRequest = True
+
+    End Sub
+
+    Private Sub btnCopyForth_Click(sender As Object, e As EventArgs) Handles btnCopyForth.Click
+
+        Dim today As Integer
+        Dim tomorrow As Integer
+        For Each rb In gbDays.Controls
+            If TypeOf (rb) Is RadioButton AndAlso rb.checked = True Then
+                today = Integer.Parse(Strings.Right(rb.name, 1))
+            End If
+        Next
+        If today = 6 Then
+            tomorrow = 0
+        Else
+            tomorrow = today + 1
+        End If
+
+
+        For j = 0 To 47
+            activeHeatTempLocal(tomorrow, j) = activeHeatTempLocal(today, j)
+            activeCoolTempLocal(tomorrow, j) = activeCoolTempLocal(today, j)
+        Next
+
+        DirectCast(gbDays.Controls.Find("rbDay" & tomorrow.ToString, True)(0), RadioButton).Select()
+
+    End Sub
+
+    Private Sub btnCopyBack_Click(sender As Object, e As EventArgs) Handles btnCopyBack.Click
+        Dim today As Integer
+        Dim yesterday As Integer
+        For Each rb In gbDays.Controls
+            If TypeOf (rb) Is RadioButton AndAlso rb.checked = True Then
+                today = Integer.Parse(Strings.Right(rb.name, 1))
+            End If
+        Next
+        If today = 0 Then
+            yesterday = 6
+        Else
+            yesterday = today - 1
+        End If
+
+
+        For j = 0 To 47
+            activeHeatTempLocal(yesterday, j) = activeHeatTempLocal(today, j)
+            activeCoolTempLocal(yesterday, j) = activeCoolTempLocal(today, j)
+        Next
+
+        DirectCast(gbDays.Controls.Find("rbDay" & yesterday.ToString, True)(0), RadioButton).Select()
+
+    End Sub
 End Class

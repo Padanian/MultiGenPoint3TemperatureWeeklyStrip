@@ -7,7 +7,8 @@ Public Class MultiGenPoint3TemperatureWeeklyStrip
     Private m_isManual As Boolean
     Private m_isOff As Boolean
     Private m_isEco As Boolean
-    Public Shared myWeeklySchedule As New weeklyScheduler
+    Public Shared UpdateRequest As Boolean = True
+    Private myWeeklySchedule As New weeklyScheduler
     Public Property isHeating As Boolean
         Get
             isHeating = m_isHeating
@@ -96,40 +97,6 @@ Public Class MultiGenPoint3TemperatureWeeklyStrip
         InitializeComponent()
         modificaClockText("")
 
-        For i = 3 To 288 Step 6
-            Dim pbTickT1 As PictureBox = New PictureBox
-            Dim pbTickT2 As PictureBox = New PictureBox
-            Dim pbTickT3 As PictureBox = New PictureBox
-            With pbTickT1
-                .Width = 5
-                .Height = 5
-                .Location = New Point(Me.Location.X + i, Me.Location.Y + 110)
-                .BackColor = Color.Black
-                .Visible = True
-            End With
-            Me.Controls.Add(pbTickT1)
-            AddHandler pbTickT1.Click, AddressOf pbSquares_Click
-            With pbTickT2
-                .Width = 5
-                .Height = 5
-                .Location = New Point(Me.Location.X + i, Me.Location.Y + 116)
-                .BackColor = Color.Black
-                .Visible = True
-            End With
-            Me.Controls.Add(pbTickT2)
-            AddHandler pbTickT2.Click, AddressOf pbSquares_Click
-            With pbTickT3
-                .Width = 5
-                .Height = 5
-                .Location = New Point(Me.Location.X + i, Me.Location.Y + 122)
-                .BackColor = Color.Black
-                .Visible = True
-            End With
-            Me.Controls.Add(pbTickT3)
-            AddHandler pbTickT3.Click, AddressOf pbSquares_Click
-        Next
-        AddHandler Me.Click, AddressOf pbSquares_Click
-
 #Region "Labels"
         Dim lbl04 As New Label
         With lbl04
@@ -176,15 +143,15 @@ Public Class MultiGenPoint3TemperatureWeeklyStrip
             .Height = 12
         End With
         Me.Controls.Add(lbl20)
-
+#End Region
         With clock
-            .Interval = 1000
+            .Interval = 500
             .Enabled = True
             .AutoReset = True
             .Start()
         End With
-#End Region
-        Me.temperature = 88.8
+
+        Me.temperature = 20.4
         Me.isHeating = False
         Me.isCooling = False
         Me.isManual = False
@@ -196,7 +163,7 @@ Public Class MultiGenPoint3TemperatureWeeklyStrip
             lblDay.Text = "7"
         End If
 
-
+        AddHandler Me.Click, AddressOf pbSquares_Click
 
         If System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern = "MM/dd/yyyy" Then
             lblDate.Text = DateTime.Now.Month.ToString.PadLeft(2, "0") & "/" &
@@ -217,6 +184,105 @@ Public Class MultiGenPoint3TemperatureWeeklyStrip
         End If
 
         modificalblDays()
+
+        Dim timingUpdate = 3600
+#If DEBUG Then
+        timingUpdate = 60
+#End If
+
+
+        If UpdateRequest Or DateTime.Now.Second Mod timingUpdate = 0 Then
+            For Each pb In Me.Controls
+                If TypeOf (pb) Is PictureBox And pb.height = 5 And pb.width = 5 Then
+                    pbDispose(pb)
+                End If
+            Next
+            Dim counter As Integer
+            For i = 3 To 288 Step 6
+                Dim pbTickT1 As PictureBox = New PictureBox
+                Dim pbTickT2 As PictureBox = New PictureBox
+                Dim pbTickT3 As PictureBox = New PictureBox
+                With pbTickT3
+                    .Width = 5
+                    .Height = 5
+                    .Location = New Point(.Location.X + i, .Location.Y + 110)
+                    .Visible = True
+                End With
+                pbAddControl(pbTickT3)
+                AddHandler pbTickT1.Click, AddressOf pbSquares_Click
+                With pbTickT2
+                    .Width = 5
+                    .Height = 5
+                    .Location = New Point(.Location.X + i, .Location.Y + 116)
+                    .Visible = True
+                End With
+                pbAddControl(pbTickT2)
+                AddHandler pbTickT2.Click, AddressOf pbSquares_Click
+                With pbTickT1
+                    .Width = 5
+                    .Height = 5
+                    .Location = New Point(.Location.X + i, .Location.Y + 122)
+                    .Visible = True
+                    .Name = "pbTickT1" & counter.ToString.PadLeft(2, "0")
+                End With
+                pbAddControl(pbTickT1)
+                AddHandler pbTickT3.Click, AddressOf pbSquares_Click
+
+                If myWeeklySchedule.activeHeatTemp(DateTime.Now.DayOfWeek, counter) = 0 Then
+                    pbTickT1.BackColor = Color.LightGray
+                    pbTickT2.BackColor = Color.LightGray
+                    pbTickT3.BackColor = Color.LightGray
+                ElseIf myWeeklySchedule.activeHeatTemp(DateTime.Now.DayOfWeek, counter) = 1 Then
+                    pbTickT1.BackColor = Color.Black
+                    pbTickT2.BackColor = Color.LightGray
+                    pbTickT3.BackColor = Color.LightGray
+                ElseIf myWeeklySchedule.activeHeatTemp(DateTime.Now.DayOfWeek, counter) = 2 Then
+                    pbTickT1.BackColor = Color.Black
+                    pbTickT2.BackColor = Color.Black
+                    pbTickT3.BackColor = Color.LightGray
+                ElseIf myWeeklySchedule.activeHeatTemp(DateTime.Now.DayOfWeek, counter) = 3 Then
+                    pbTickT1.BackColor = Color.Black
+                    pbTickT2.BackColor = Color.Black
+                    pbTickT3.BackColor = Color.Black
+                End If
+
+                counter += 1
+            Next
+        End If
+
+        MultiGenPoint3TemperatureWeeklyStrip.UpdateRequest = False
+        blinkingDot()
+
+    End Sub
+    Private Delegate Sub blinkingDotDelegate()
+    Private Sub blinkingDot()
+
+
+
+        If Me.InvokeRequired Then
+            Dim d As New blinkingDotDelegate(AddressOf Me.blinkingDot)
+            Me.BeginInvoke(d)
+        Else
+            Dim position As Integer
+            Dim defaultColor As Color
+            position = (DateTime.Now.Hour * 60 + DateTime.Now.Minute) \ 30
+
+            If myWeeklySchedule.activeHeatTemp(DateTime.Now.DayOfWeek, position) <> 0 Then
+                defaultColor = Color.Black
+            Else
+                defaultColor = Color.LightGray
+            End If
+
+
+            If DirectCast(Me.Controls.Find("pbTickT1" & position.ToString.PadLeft(2, "0"), True)(0), PictureBox).BackColor = defaultColor Then
+                DirectCast(Me.Controls.Find("pbTickT1" & position.ToString.PadLeft(2, "0"), True)(0), PictureBox).BackColor = Color.DarkGray
+            Else
+                DirectCast(Me.Controls.Find("pbTickT1" & position.ToString.PadLeft(2, "0"), True)(0), PictureBox).BackColor = defaultColor
+            End If
+
+        End If
+
+
 
     End Sub
     Private Delegate Sub modificaClockTextDelegate(ByVal a As String)
@@ -251,9 +317,41 @@ Public Class MultiGenPoint3TemperatureWeeklyStrip
         End If
 
     End Sub
+    Private Delegate Sub pbDisposeDelegate(ByRef a As PictureBox)
+    Private Sub pbDispose(ByRef a As PictureBox)
+
+        If Me.InvokeRequired Then
+            Dim d As New pbDisposeDelegate(AddressOf Me.pbDispose)
+            Me.BeginInvoke(d, New Object() {a})
+        Else
+            a.Dispose()
+        End If
+
+    End Sub
+    Private Delegate Sub pbAddControlDelegate(ByRef a As PictureBox)
+    Private Sub pbAddControl(ByRef a As PictureBox)
+
+        If Me.InvokeRequired Then
+            Dim d As New pbDisposeDelegate(AddressOf Me.pbAddControl)
+            Me.BeginInvoke(d, New Object() {a})
+        Else
+            Me.Controls.Add(a)
+        End If
+
+    End Sub
     Public Sub pbSquares_Click()
+        dlgTemperatureCalendar.dlgWeeklyScheduler = myWeeklySchedule
         dlgTemperatureCalendar.ShowDialog()
+        If dlgTemperatureCalendar.DialogResult = DialogResult.OK Then
+            myWeeklySchedule = dlgTemperatureCalendar.dlgWeeklyScheduler
+        End If
+    End Sub
+    Private Sub MultiGenPoint3TemperatureWeeklyStrip_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 
+    Public Sub UpdatemyWeeklySchedule(ByVal a As weeklyScheduler)
+        myWeeklySchedule = a
+    End Sub
 
 End Class

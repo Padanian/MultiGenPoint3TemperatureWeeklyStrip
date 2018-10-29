@@ -1,4 +1,5 @@
-﻿Public Class weeklyScheduler
+﻿<Serializable()>
+Public Class weeklyScheduler
     Public Property setpointHeatT1 As Double
     Public Property setpointHeatT2 As Double
     Public Property setpointHeatT3 As Double

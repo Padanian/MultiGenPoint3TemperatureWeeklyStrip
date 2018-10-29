@@ -71,10 +71,12 @@ Partial Class dlgTemperatureCalendar
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.btnCopyBack = New System.Windows.Forms.Button()
+        Me.btnCopyForth = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.cbManual = New System.Windows.Forms.ComboBox()
+        Me.btnLoadWeekly = New System.Windows.Forms.Button()
+        Me.btnSaveWeekly = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.gbDays.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -651,27 +653,27 @@ Partial Class dlgTemperatureCalendar
         Me.PictureBox1.TabIndex = 6
         Me.PictureBox1.TabStop = False
         '
-        'Button1
+        'btnCopyBack
         '
-        Me.Button1.Location = New System.Drawing.Point(34, 313)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(90, 35)
-        Me.Button1.TabIndex = 7
-        Me.Button1.Text = "Copia su giorno precedente"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnCopyBack.Location = New System.Drawing.Point(34, 314)
+        Me.btnCopyBack.Name = "btnCopyBack"
+        Me.btnCopyBack.Size = New System.Drawing.Size(90, 35)
+        Me.btnCopyBack.TabIndex = 7
+        Me.btnCopyBack.Text = "Copia su giorno precedente"
+        Me.btnCopyBack.UseVisualStyleBackColor = True
         '
-        'Button2
+        'btnCopyForth
         '
-        Me.Button2.Location = New System.Drawing.Point(130, 313)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(90, 35)
-        Me.Button2.TabIndex = 7
-        Me.Button2.Text = "Copia su giorno successivo"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnCopyForth.Location = New System.Drawing.Point(130, 314)
+        Me.btnCopyForth.Name = "btnCopyForth"
+        Me.btnCopyForth.Size = New System.Drawing.Size(90, 35)
+        Me.btnCopyForth.TabIndex = 7
+        Me.btnCopyForth.Text = "Copia su giorno successivo"
+        Me.btnCopyForth.UseVisualStyleBackColor = True
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.ComboBox1)
+        Me.GroupBox1.Controls.Add(Me.cbManual)
         Me.GroupBox1.Location = New System.Drawing.Point(480, 12)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(93, 104)
@@ -679,14 +681,32 @@ Partial Class dlgTemperatureCalendar
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Manuale"
         '
-        'ComboBox1
+        'cbManual
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"T3", "T2", "T1", "Antigelo"})
-        Me.ComboBox1.Location = New System.Drawing.Point(6, 40)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(81, 21)
-        Me.ComboBox1.TabIndex = 0
+        Me.cbManual.FormattingEnabled = True
+        Me.cbManual.Items.AddRange(New Object() {"T3", "T2", "T1", "Antigelo"})
+        Me.cbManual.Location = New System.Drawing.Point(6, 40)
+        Me.cbManual.Name = "cbManual"
+        Me.cbManual.Size = New System.Drawing.Size(81, 21)
+        Me.cbManual.TabIndex = 0
+        '
+        'btnLoadWeekly
+        '
+        Me.btnLoadWeekly.Location = New System.Drawing.Point(226, 314)
+        Me.btnLoadWeekly.Name = "btnLoadWeekly"
+        Me.btnLoadWeekly.Size = New System.Drawing.Size(90, 35)
+        Me.btnLoadWeekly.TabIndex = 7
+        Me.btnLoadWeekly.Text = "Carica settimanale"
+        Me.btnLoadWeekly.UseVisualStyleBackColor = True
+        '
+        'btnSaveWeekly
+        '
+        Me.btnSaveWeekly.Location = New System.Drawing.Point(322, 314)
+        Me.btnSaveWeekly.Name = "btnSaveWeekly"
+        Me.btnSaveWeekly.Size = New System.Drawing.Size(90, 35)
+        Me.btnSaveWeekly.TabIndex = 7
+        Me.btnSaveWeekly.Text = "Salva settimanale"
+        Me.btnSaveWeekly.UseVisualStyleBackColor = True
         '
         'dlgTemperatureCalendar
         '
@@ -696,8 +716,10 @@ Partial Class dlgTemperatureCalendar
         Me.CancelButton = Me.Cancel_Button
         Me.ClientSize = New System.Drawing.Size(784, 361)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btnSaveWeekly)
+        Me.Controls.Add(Me.btnLoadWeekly)
+        Me.Controls.Add(Me.btnCopyForth)
+        Me.Controls.Add(Me.btnCopyBack)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Label19)
         Me.Controls.Add(Me.Label18)
@@ -798,8 +820,10 @@ Partial Class dlgTemperatureCalendar
     Friend WithEvents Label18 As Label
     Friend WithEvents Label19 As Label
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
+    Friend WithEvents btnCopyBack As Button
+    Friend WithEvents btnCopyForth As Button
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents cbManual As ComboBox
+    Friend WithEvents btnLoadWeekly As Button
+    Friend WithEvents btnSaveWeekly As Button
 End Class

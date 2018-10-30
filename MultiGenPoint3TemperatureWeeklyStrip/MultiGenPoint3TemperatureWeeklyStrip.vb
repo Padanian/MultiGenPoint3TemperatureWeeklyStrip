@@ -152,7 +152,7 @@ Public Class MultiGenPoint3TemperatureWeeklyStrip
         End With
 
         Me.temperature = 100 * Rnd()
-        Me.isHeating = False
+        Me.isHeating = True
         Me.isCooling = False
         Me.isManual = False
         Me.isEco = False
@@ -193,6 +193,7 @@ Public Class MultiGenPoint3TemperatureWeeklyStrip
 
 
         If UpdateRequest Or DateTime.Now.Second Mod timingUpdate = 0 Then
+            UpdateRequest = False
             For Each pb In Me.Controls
                 If TypeOf (pb) Is PictureBox And pb.height = 5 And pb.width = 5 Then
                     pbDispose(pb)
@@ -246,12 +247,10 @@ Public Class MultiGenPoint3TemperatureWeeklyStrip
                     pbTickT2.BackColor = Color.Black
                     pbTickT3.BackColor = Color.Black
                 End If
-
                 counter += 1
             Next
         End If
 
-        MultiGenPoint3TemperatureWeeklyStrip.UpdateRequest = False
         blinkingDot()
 
     End Sub
@@ -280,7 +279,6 @@ Public Class MultiGenPoint3TemperatureWeeklyStrip
             Else
                 DirectCast(Me.Controls.Find("pbTickT1" & position.ToString.PadLeft(2, "0"), True)(0), PictureBox).BackColor = defaultColor
             End If
-
         End If
 
 
@@ -330,11 +328,13 @@ Public Class MultiGenPoint3TemperatureWeeklyStrip
 
     End Sub
     Private Delegate Sub pbAddControlDelegate(ByRef a As PictureBox)
+
     Private Sub pbAddControl(ByRef a As PictureBox)
 
         If Me.InvokeRequired Then
             Dim d As New pbDisposeDelegate(AddressOf Me.pbAddControl)
             Me.BeginInvoke(d, New Object() {a})
+
         Else
             Me.Controls.Add(a)
         End If

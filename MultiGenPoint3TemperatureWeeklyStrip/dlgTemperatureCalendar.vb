@@ -25,7 +25,6 @@ Public Class dlgTemperatureCalendar
 
 
         MultiGenPoint3TemperatureWeeklyStrip.UpdateRequest = True
-
         Me.DialogResult = System.Windows.Forms.DialogResult.OK
         Me.Close()
     End Sub
@@ -36,7 +35,7 @@ Public Class dlgTemperatureCalendar
         Me.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.Close()
     End Sub
-    Private Sub rbDayAll_CheckedChanged(sender As Object, e As EventArgs) Handles chkDayAll.CheckedChanged
+    Private Sub chkDayAll_CheckedChanged(sender As Object, e As EventArgs) Handles chkDayAll.CheckedChanged
         If chkDayAll.Checked = True Then
             For i = 0 To 6
                 DirectCast(Me.Controls.Find("rbDay" & i, True)(0), RadioButton).Enabled = False
@@ -184,12 +183,30 @@ Public Class dlgTemperatureCalendar
 
     End Sub
     Private Sub chkTime_Touched(sender As Object, e As EventArgs)
+        Dim weekCycleEnd As Integer
+        Dim weekCycleStart As Integer
+        Dim hour As Integer
+        Integer.TryParse(Strings.Mid(sender.name, 8, 2), hour)
+
         Dim day As Integer
         For Each rb In gbDays.Controls
             If TypeOf (rb) Is RadioButton AndAlso rb.checked = True Then
-                day = Integer.Parse(Strings.Right(rb.name, 1))
+                Integer.TryParse(Strings.Right(rb.name, 1), day)
             End If
         Next
+
+        If chkDayAll.Checked Then
+            weekCycleEnd = 6
+            weekCycleStart = 0
+        ElseIf rbFeriale.Checked Then
+            weekCycleEnd = 5
+            weekCycleStart = 1
+            day = 1
+        ElseIf rbFestivo.Checked Then
+            day = 6
+        End If
+
+
 
         If sender.backcolor = Color.LightGray Then
             sender.backcolor = Color.Black
@@ -197,14 +214,14 @@ Public Class dlgTemperatureCalendar
                 DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "02", True)(0), PictureBox).BackColor = Color.Black
                 DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "01", True)(0), PictureBox).BackColor = Color.Black
                 DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "00", True)(0), PictureBox).BackColor = Color.Black
-                activeHeatTempLocal(day, CInt(Strings.Mid(sender.name, 8, 2))) = 3
+                activeHeatTempLocal(day, hour) = 3
             ElseIf Strings.Right(sender.name, 2) = "01" Then
                 DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "01", True)(0), PictureBox).BackColor = Color.Black
                 DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "00", True)(0), PictureBox).BackColor = Color.Black
-                activeHeatTempLocal(day, CInt(Strings.Mid(sender.name, 8, 2))) = 2
+                activeHeatTempLocal(day, hour) = 2
             ElseIf Strings.Right(sender.name, 2) = "00" Then
                 DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "00", True)(0), PictureBox).BackColor = Color.Black
-                activeHeatTempLocal(day, CInt(Strings.Mid(sender.name, 8, 2))) = 1
+                activeHeatTempLocal(day, hour) = 1
 
             End If
         Else
@@ -212,28 +229,55 @@ Public Class dlgTemperatureCalendar
             If Strings.Right(sender.name, 2) = "01" Then
                 DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "02", True)(0), PictureBox).BackColor = Color.LightGray
                 DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "01", True)(0), PictureBox).BackColor = Color.LightGray
-                activeHeatTempLocal(day, CInt(Strings.Mid(sender.name, 8, 2))) = 1
+                activeHeatTempLocal(day, hour) = 1
             ElseIf Strings.Right(sender.name, 2) = "00" Then
                 DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "02", True)(0), PictureBox).BackColor = Color.LightGray
                 DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "01", True)(0), PictureBox).BackColor = Color.LightGray
                 DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "00", True)(0), PictureBox).BackColor = Color.LightGray
-                activeHeatTempLocal(day, CInt(Strings.Mid(sender.name, 8, 2))) = 0
+                activeHeatTempLocal(day, hour) = 0
             ElseIf Strings.Right(sender.name, 2) = "02" Then
                 DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "00", True)(0), PictureBox).BackColor = Color.LightGray
-                activeHeatTempLocal(day, CInt(Strings.Mid(sender.name, 8, 2))) = 2
+                activeHeatTempLocal(day, hour) = 2
             End If
         End If
+
+        If weekCycleEnd <> weekCycleStart Then
+            For weekdays = weekCycleStart To weekCycleEnd
+                activeHeatTempLocal(weekdays, hour) = activeHeatTempLocal(day, hour)
+            Next
+        End If
+
+        If rbFestivo.Checked Then
+            activeHeatTempLocal(0, hour) = activeHeatTempLocal(day, hour)
+        End If
+
 
         MultiGenPoint3TemperatureWeeklyStrip.UpdateRequest = True
 
     End Sub
     Private Sub cckTime_Touched(sender As Object, e As EventArgs)
+        Dim weekCycleEnd As Integer
+        Dim weekCycleStart As Integer
+        Dim hour As Integer
+        Integer.TryParse(Strings.Mid(sender.name, 8, 2), hour)
+
         Dim day As Integer
         For Each rb In gbDays.Controls
             If TypeOf (rb) Is RadioButton AndAlso rb.checked = True Then
-                day = Integer.Parse(Strings.Right(rb.name, 1))
+                Integer.TryParse(Strings.Right(rb.name, 1), day)
             End If
         Next
+
+        If chkDayAll.Checked Then
+            weekCycleEnd = 6
+            weekCycleStart = 0
+        ElseIf rbFeriale.Checked Then
+            weekCycleEnd = 5
+            weekCycleStart = 1
+            day = 1
+        ElseIf rbFestivo.Checked Then
+            day = 6
+        End If
 
 
         If sender.backcolor = Color.LightGray Then
@@ -242,14 +286,14 @@ Public Class dlgTemperatureCalendar
                 DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "02", True)(0), PictureBox).BackColor = Color.Black
                 DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "01", True)(0), PictureBox).BackColor = Color.Black
                 DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "00", True)(0), PictureBox).BackColor = Color.Black
-                activeCoolTempLocal(day, CInt(Strings.Mid(sender.name, 8, 2))) = 3
+                activeCoolTempLocal(day, hour) = 3
             ElseIf Strings.Right(sender.name, 2) = "01" Then
                 DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "01", True)(0), PictureBox).BackColor = Color.Black
                 DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "00", True)(0), PictureBox).BackColor = Color.Black
-                activeCoolTempLocal(day, CInt(Strings.Mid(sender.name, 8, 2))) = 2
+                activeCoolTempLocal(day, hour) = 2
             ElseIf Strings.Right(sender.name, 2) = "00" Then
                 DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "00", True)(0), PictureBox).BackColor = Color.Black
-                activeCoolTempLocal(day, CInt(Strings.Mid(sender.name, 8, 2))) = 1
+                activeCoolTempLocal(day, hour) = 1
 
             End If
         Else
@@ -257,17 +301,29 @@ Public Class dlgTemperatureCalendar
             If Strings.Right(sender.name, 2) = "01" Then
                 DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "02", True)(0), PictureBox).BackColor = Color.LightGray
                 DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "01", True)(0), PictureBox).BackColor = Color.LightGray
-                activeCoolTempLocal(day, CInt(Strings.Mid(sender.name, 8, 2))) = 1
+                activeCoolTempLocal(day, hour) = 1
             ElseIf Strings.Right(sender.name, 2) = "00" Then
                 DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "02", True)(0), PictureBox).BackColor = Color.LightGray
                 DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "01", True)(0), PictureBox).BackColor = Color.LightGray
                 DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "00", True)(0), PictureBox).BackColor = Color.LightGray
-                activeCoolTempLocal(day, CInt(Strings.Mid(sender.name, 8, 2))) = 0
+                activeCoolTempLocal(day, hour) = 0
             ElseIf Strings.Right(sender.name, 2) = "02" Then
                 DirectCast(Me.Controls.Find(Strings.Left(sender.name, sender.name.length - 2) & "00", True)(0), PictureBox).BackColor = Color.LightGray
-                activeCoolTempLocal(day, CInt(Strings.Mid(sender.name, 8, 2))) = 2
+                activeCoolTempLocal(day, hour) = 2
             End If
         End If
+
+        If weekCycleEnd <> weekCycleStart Then
+            For weekdays = weekCycleStart To weekCycleEnd
+                activeCoolTempLocal(weekdays, hour) = activeCoolTempLocal(day, hour)
+            Next
+        End If
+
+        If rbFestivo.Checked Then
+            activeCoolTempLocal(0, hour) = activeCoolTempLocal(day, hour)
+        End If
+
+        MultiGenPoint3TemperatureWeeklyStrip.UpdateRequest = True
 
     End Sub
     Private Sub rbDay_CheckedChanged(sender As Object, e As EventArgs) Handles rbDay1.CheckedChanged,
@@ -481,6 +537,20 @@ Public Class dlgTemperatureCalendar
         Next
 
         DirectCast(gbDays.Controls.Find("rbDay" & yesterday.ToString, True)(0), RadioButton).Select()
+
+    End Sub
+    Private Sub btnEmptyWeek_Click(sender As Object, e As EventArgs) Handles btnEmptyWeek.Click
+        For i = 0 To 6
+            For j = 0 To 47
+                activeHeatTempLocal(i, j) = 0
+                activeCoolTempLocal(i, j) = 0
+            Next
+        Next
+        For Each pb In Me.Controls
+            If TypeOf (pb) Is PictureBox And pb.Height = 14 And pb.Width = 14 Then
+                pb.backcolor = Color.LightGray
+            End If
+        Next
 
     End Sub
 End Class

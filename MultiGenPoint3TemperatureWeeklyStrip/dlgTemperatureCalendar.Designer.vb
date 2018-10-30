@@ -77,6 +77,7 @@ Partial Class dlgTemperatureCalendar
         Me.cbManual = New System.Windows.Forms.ComboBox()
         Me.btnLoadWeekly = New System.Windows.Forms.Button()
         Me.btnSaveWeekly = New System.Windows.Forms.Button()
+        Me.btnEmptyWeek = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.gbDays.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -708,6 +709,15 @@ Partial Class dlgTemperatureCalendar
         Me.btnSaveWeekly.Text = "Salva settimanale"
         Me.btnSaveWeekly.UseVisualStyleBackColor = True
         '
+        'btnEmptyWeek
+        '
+        Me.btnEmptyWeek.Location = New System.Drawing.Point(439, 314)
+        Me.btnEmptyWeek.Name = "btnEmptyWeek"
+        Me.btnEmptyWeek.Size = New System.Drawing.Size(99, 35)
+        Me.btnEmptyWeek.TabIndex = 7
+        Me.btnEmptyWeek.Text = "Crea settimanale vuoto"
+        Me.btnEmptyWeek.UseVisualStyleBackColor = True
+        '
         'dlgTemperatureCalendar
         '
         Me.AcceptButton = Me.OK_Button
@@ -716,6 +726,7 @@ Partial Class dlgTemperatureCalendar
         Me.CancelButton = Me.Cancel_Button
         Me.ClientSize = New System.Drawing.Size(784, 361)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.btnEmptyWeek)
         Me.Controls.Add(Me.btnSaveWeekly)
         Me.Controls.Add(Me.btnLoadWeekly)
         Me.Controls.Add(Me.btnCopyForth)
@@ -826,4 +837,5 @@ Partial Class dlgTemperatureCalendar
     Friend WithEvents cbManual As ComboBox
     Friend WithEvents btnLoadWeekly As Button
     Friend WithEvents btnSaveWeekly As Button
+    Friend WithEvents btnEmptyWeek As Button
 End Class

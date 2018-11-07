@@ -273,11 +273,14 @@ Public Class MultiGenPoint3TemperatureWeeklyStrip
                 defaultColor = Color.LightGray
             End If
 
+            Dim ca As Control() = Me.Controls.Find("pbTickT1" & position.ToString.PadLeft(2, "0"), True)
+            If ca.Length <> 0 Then
 
-            If DirectCast(Me.Controls.Find("pbTickT1" & position.ToString.PadLeft(2, "0"), True)(0), PictureBox).BackColor = defaultColor Then
-                DirectCast(Me.Controls.Find("pbTickT1" & position.ToString.PadLeft(2, "0"), True)(0), PictureBox).BackColor = Color.DarkGray
-            Else
-                DirectCast(Me.Controls.Find("pbTickT1" & position.ToString.PadLeft(2, "0"), True)(0), PictureBox).BackColor = defaultColor
+                If DirectCast(ca(0), PictureBox).BackColor = defaultColor Then
+                    DirectCast(ca(0), PictureBox).BackColor = Color.DarkGray
+                Else
+                    DirectCast(ca(0), PictureBox).BackColor = defaultColor
+                End If
             End If
         End If
 

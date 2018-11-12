@@ -88,6 +88,7 @@ Public Class MultiGenPoint3TemperatureWeeklyStrip : Implements IDisposable
                     clock_tick()
                 Next
             End If
+            Me.Refresh()
         End Set
     End Property
     Public Property temperature As Double
@@ -367,7 +368,6 @@ Public Class MultiGenPoint3TemperatureWeeklyStrip : Implements IDisposable
             Else
                 DirectCast(Me.Controls.Find("pbTickT1" & position.ToString.PadLeft(2, "0"), True)(0), PictureBox).BackColor = defaultColor
             End If
-
         End If
 
 
@@ -430,5 +430,10 @@ Public Class MultiGenPoint3TemperatureWeeklyStrip : Implements IDisposable
         myRectangle = New Rectangle(0, 0, 294, 130)
         myGraphics.DrawRectangle(myPen, myRectangle)
 
+    End Sub
+
+    Private Sub MultiGenPoint3TemperatureWeeklyStrip_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        UpdateRequest = True
+        Me.Refresh()
     End Sub
 End Class
